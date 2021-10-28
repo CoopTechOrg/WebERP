@@ -1,0 +1,38 @@
+@startuml
+
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+entity "User [ユーザマスタ]" as User {
+  *id : number <<auto increment>>
+  --
+  name [ユーザ名] : text
+  last_logged_in [最終ログイン日] : datetime
+  description : text
+}
+
+entity "ReceivedOrder [受注データ]" as ReceivedOrder {
+  *id : number <<auto increment>>
+  --
+  supplier_id : number <<FK>>
+  ordered_at : datetime
+  ordered_by : number <<FK>>
+  created_at : datetime
+  created_by : number <<FK>>
+  updated_at : datetime
+  updated_by : number <<FK>>
+}
+
+entity "Supplier [取引先マスタ]" as Supplier {
+  *id : number <<auto increment>>
+  --
+  managed_by : number <<FK>>
+  other_details : text
+}
+
+User ||..|| ReceivedOrder
+User |o..o{ Supplier
+Supplier |o..o{ ReceivedOrder
+
+@enduml
