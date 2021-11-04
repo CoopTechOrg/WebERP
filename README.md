@@ -2,10 +2,9 @@
 案件管理 WebERP作るよ
 
 # 技術スタック
-- Laravel(6 or 9)
+- Laravel8
   - DDD採用予定
-- Vue2
-  - 独立したjs or Laravel内蔵のものか？SPA or MPA？はメンバー次第
+- Vue3 + ts (laravel-mix)
 - DevOps(Docker, plantUML) 非必須
 - CI/CD
 - AWS(s3, ECS)
