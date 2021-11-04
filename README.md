@@ -28,3 +28,7 @@
 - DevOps(Docker) 非必須
 - CI/CD
 - AWS(s3, ECS)
+
+# ERPとは？
+## WebERP参考サイト
+[grandit](https://www.grandit.jp)
