@@ -30,8 +30,8 @@ entity "Supplier [取引先マスタ]" as Supplier {
   other_details : text
 }
 
-User ||..|| ReceivedOrder
-User |o..o{ Supplier
-Supplier |o..o{ ReceivedOrder
+User ||..o{ ReceivedOrder
+User ||..o{ Supplier
+Supplier ||..o{ ReceivedOrder
 
 @enduml
