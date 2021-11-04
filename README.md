@@ -23,9 +23,9 @@
 # 技術スタック
 - Laravel(6 or 9)
   - DDD採用予定
-- Vue3
+- Vue2
   - 独立したjs or Laravel内蔵のものか？SPA or MPA？はメンバー次第
-- DevOps(Docker) 非必須
+- DevOps(Docker, plantUML) 非必須
 - CI/CD
 - AWS(s3, ECS)
 
