@@ -16,6 +16,10 @@
 
 # ブランチルール
 以下を参考に、作業ブランチから親ブランチへPR(Pull Request)投げてください
+
+## 保護設定
+[参考サイト](https://qiita.com/da-sugi/items/ba3cd83e64c689795c50)
+
 ## 開発
 ### 親ブランチ
 `develop`ブランチ
