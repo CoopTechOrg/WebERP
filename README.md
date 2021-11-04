@@ -8,16 +8,23 @@
 - DevOps(Docker, plantUML) 非必須
 - CI/CD
 - AWS(s3, ECS)
+- css(sass)
 
 # ERPとは？
 ## WebERP参考サイト
 [grandit](https://www.grandit.jp)
 
-# ブランチルール
-以下を参考に、作業ブランチから親ブランチへPR(Pull Request)投げてください
+# 開発手法
+- アジャイル
+  - ウォーターフォールほどでもないかな。
+
+# Git
 
 ## 保護設定
 [参考サイト](https://qiita.com/da-sugi/items/ba3cd83e64c689795c50)
+
+## ブランチルール
+以下を参考に、作業ブランチから親ブランチへPR(Pull Request)投げてください
 
 ## 開発
 ### 親ブランチ
