@@ -5,7 +5,7 @@
 - Laravel8
   - DDD採用予定
 - Vue3 + ts (laravel-mix)
-- DevOps(Docker, plantUML) 非必須
+- DevOps(Docker) 非必須, plantUML 必須(設計ファイル見れなくても良い人はなくてもいいけど推奨)
 - CI/CD
 - AWS(s3, ECS)
 - css(sass)
