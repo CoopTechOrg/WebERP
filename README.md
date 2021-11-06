@@ -36,11 +36,11 @@
 ### 親ブランチ
 `idea`ブランチ
 ### 作業ブランチ
-`idea/***`ブランチ
+`idea-feature/***`ブランチ
 
 ## 設計
 ### 親ブランチ
 `system_design`ブランチ
 ### 作業ブランチ
-`system_design/***`ブランチ
+`system_design-feature/***`ブランチ
  
