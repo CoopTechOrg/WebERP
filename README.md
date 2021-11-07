@@ -1,6 +1,19 @@
 ## 概要
 案件管理 WebERP作るよ
 
+## アサイン (敬称略)
+### テスト
+- ふな (https://github.com/funa074)
+- たてりょ～ (https://github.com/Rywwwwwww)
+
+### デザイン(css)、画面描画部分
+- 星宮 (https://github.com/hosimiya7)
+- Shumpei (https://github.com/Shumpei0111)
+
+### インフラDocker構築
+- つむぎ (https://github.com/it-tsumugi)
+- 坂口 (https://github.com/Zuzu0725)
+
 ## 技術スタック
 - Laravel8
   - DDD採用予定
@@ -43,6 +56,12 @@
 `system_design`ブランチ
 #### 作業ブランチ
 `system_design-feature/***`ブランチ
+
+### ドキュメント
+#### 親ブランチ
+`docs` ブランチ
+#### 作業ブランチ
+なし
  
 ## コーディングルール
 - PSRに則ってください。
