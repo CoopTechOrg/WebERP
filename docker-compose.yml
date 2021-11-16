@@ -1,0 +1,55 @@
+#Composeファイルのバージョン（Docker Compose自体のファイルとは異なる）
+version: "3.8"
+
+#Docker Volumeの定義
+volumes:
+  mysql-volume:
+
+services:
+  #Webサーバー(サービス名web)
+  web:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    #ローカルとコンテナ間のポート番号の対応付け
+    ports:
+      - ${WEB_PORT}:80
+    #phpを起動してからnginxを起動するように依存関係を設定
+    depends_on:
+      - app
+    volumes:
+      - ./src/:/var/www/html
+
+  app:
+    build:
+      #ビルドコンテキストをカレントディレクトリに明示的に指定
+      context: .
+      #Dockerfileのパスを記述
+      dockerfile: ./docker/php/Dockerfile
+    #ローカルの指定ディレクトリとDockerコンテナ間のリソースの対応付け
+    volumes:
+      - ./src/:/var/www/html
+    #環境変数の設定
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=${DB_NAME}
+      - DB_USERNAME=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/mysql/Dockerfile
+    ports:
+      - ${DB_PORT}:3306
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      TZ: "Asia/Tokyo"
+    #Docker Volumeを用いてローカルの指定ディレクトリをDockerコンテナ間にマウント
+    volumes:
+      - mysql-volume:/var/lib/mysql
