@@ -62,3 +62,43 @@
 ### 作業ブランチ
 
 `system_design-feature/***`ブランチ
+
+# 環境構築
+
+docker-compose を使っている方は docker compose ではなく docker-compose のコマンドを使用してください。
+
+1. ファイルの所有者を変更
+
+```
+sudo chown -R root:root src docker docker-compose.yml
+```
+
+2. docker image の作成
+
+```
+docker compose build
+```
+
+3. docker コンテナの起動と web-erp-app コンテナへ入る
+
+```
+docker compose up -d
+docker compose exec web-erp-app bash
+```
+
+4. laravel8 のインストールと storage ディレクトリの所有者変更
+
+```
+composer create-project --prefer-dist laravel/laravel . "8.x"
+chown www-data storage/ -R
+```
+
+5. jetstream と interiajs のインストール
+
+```
+composer require laravel/jetstream
+php artisan jetstream:install inertia
+npm install
+npm run dev
+php artisan migrate
+```
