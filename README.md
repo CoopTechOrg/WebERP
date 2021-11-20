@@ -43,4 +43,37 @@
 `system_design`ブランチ
 ### 作業ブランチ
 `system_design-feature/***`ブランチ
- 
+
+
+# Laravel環境構築（M1 Mac版）
+## Build & Up
+docker-compose up -d --build
+
+## コンテナ起動状態を確認
+docker-compose ps
+
+## Package Install
+appコンテナに入る
+docker-compose exec app bash
+
+## Laravelプロジェクト作成
+composer create-project --prefer-dist laravel/laravel . "8.x"
+
+## jetstream:interiajsインストール
+composer require laravel/jetstream
+php artisan jetstream:install inertia
+npm install
+npm run dev
+php artisan migrate
+
+## TSインストール
+npm install -g typescript
+
+バージョンが表示されればOK
+tsc --version
+
+TS設定用ファイル作成
+tsc --init
+
+## Laravel Mix(webpack.mix.js)の設定
+.ts('resources/**/*', 'public/js/app.js');　<- 追記
