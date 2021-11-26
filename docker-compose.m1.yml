@@ -1,5 +1,8 @@
 version: '3.8'
 
+volumes:
+  mysql-volume:
+
 services:
   app:
     build:
@@ -14,6 +17,7 @@ services:
       - DB_DATABASE=${DB_NAME}
       - DB_USERNAME=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
+    container_name: app_m1
 
   web:
     build:
@@ -25,9 +29,11 @@ services:
       - app
     volumes:
       - ./src/:/var/www/html
+    container_name: web_m1
 
   db:
     image: mysql:8.0
+    platform: linux/x86_64
     ports:
       - ${DB_PORT}:3306
     environment:
@@ -38,3 +44,4 @@ services:
       TZ: 'Asia/Tokyo'
     volumes:
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    container_name: db_m1

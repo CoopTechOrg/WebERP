@@ -46,11 +46,12 @@
 
 
 # Laravel環境構築
-M1Macの方はMySQLのDockerfileを、下記に書き換えて下さい。
-FROM --platform=linux/x86_64 mysql:8.0
 
 ## Build & Up
 docker-compose up -d --build
+
+※M1Macの方はこちら↓
+docker-compose -f docker-compose.m1.yml up -d --build
 
 ## コンテナ起動状態を確認
 docker-compose ps
