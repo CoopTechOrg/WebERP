@@ -81,4 +81,10 @@ TS設定用ファイル作成
 tsc --init
 
 ## Laravel Mix(webpack.mix.js)の設定
-.ts('resources/**/*', 'public/js/app.js');　<- 追記
+mix.js('resources/js/app.js', 'public/js').vue()
+    .postCss('resources/css/app.css', 'public/css', [
+        require('postcss-import'),
+        require('tailwindcss'),
+    ])
+    .webpackConfig(require('./webpack.config'))
+    .ts('resources/**/*', 'public/js/app.js');　<- 追記
