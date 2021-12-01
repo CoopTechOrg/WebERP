@@ -43,4 +43,3 @@
 `system_design`ブランチ
 ### 作業ブランチ
 `system_design-feature/***`ブランチ
- 
