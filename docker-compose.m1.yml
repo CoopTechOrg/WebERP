@@ -9,7 +9,7 @@ services:
       context: .
       dockerfile: ./docker/php/Dockerfile
     volumes:
-      - ./src/:/var/www/html
+      - ./src/:/app
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=db
@@ -28,7 +28,7 @@ services:
     depends_on:
       - app
     volumes:
-      - ./src/:/var/www/html
+      - ./src/:/app
     container_name: web_m1
 
   db:
