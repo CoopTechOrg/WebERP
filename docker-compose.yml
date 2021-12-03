@@ -5,6 +5,11 @@ services:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
+      args:
+          USERNAME: ${USERNAME}
+          GROUPNAME: ${GROUPNAME}
+          UID: ${UID}
+          GID: ${GID}
     volumes:
       - ./src/:/var/www/html
     environment:
