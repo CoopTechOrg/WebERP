@@ -21,9 +21,17 @@ RUN apt-get update && \
     unzip \
     vim \
     && docker-php-ext-install pdo_mysql bcmath
-RUN groupadd -g $GID $GROUPNAME
-RUN useradd -m -s /bin/bash -u $UID -g $GID
 
+
+WORKDIR /
+
+RUN mkdir /app
+
+RUN chmod -R 777 /app
+
+RUN groupadd -g $GID $GROUPNAME
+RUN useradd -m -s /bin/bash -u $UID -g $GID -G sudo $USERNAME
+RUN echo $USERNAME:passwd | chpasswd
 USER $USERNAME
 
-WORKDIR /var/www/html
+WORKDIR /app
