@@ -1,3 +1,5 @@
+# m1用のdockerfile
+
 FROM php:7.4.1-fpm
 
 # COPY php.ini
