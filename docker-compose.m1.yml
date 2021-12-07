@@ -7,7 +7,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./docker/php/Dockerfile
+      dockerfile: ./docker/php/Dockerfile_m1
     volumes:
       - ./src/:/app
     environment:
