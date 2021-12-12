@@ -6,10 +6,10 @@ services:
       context: .
       dockerfile: ./docker/php/Dockerfile
       args:
-          USERNAME: ${USERNAME}
-          GROUPNAME: ${GROUPNAME}
-          UID: ${UID}
-          GID: ${GID}
+        USERNAME: ${USERNAME}
+        GROUPNAME: ${GROUPNAME}
+        UID: ${UID}
+        GID: ${GID}
     volumes:
       - ./src/:/app
     environment:
@@ -19,6 +19,8 @@ services:
       - DB_DATABASE=${DB_NAME}
       - DB_USERNAME=${DB_USER}
       - DB_PASSWORD=${DB_PASSWORD}
+    networks:
+      - weberp-nw
 
   web:
     build:
@@ -30,6 +32,8 @@ services:
       - app
     volumes:
       - ./src/:/app
+    networks:
+      - weberp-nw
 
   db:
     image: mysql:8.0
@@ -42,4 +46,11 @@ services:
       MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
       TZ: 'Asia/Tokyo'
     volumes:
+      - ./init_scripts:/docker-entrypoint-initdb.d
       - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+    networks:
+      - weberp-nw
+
+networks:
+  weberp-nw:
+    external: true
