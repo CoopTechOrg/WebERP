@@ -13,6 +13,12 @@
 ### インフラDocker構築
 - つむぎ (https://github.com/it-tsumugi)
 - 坂口 (https://github.com/Zuzu0725)
+- 星宮 (https://github.com/hosimiya7) (Windows要員)
+
+### バックエンド
+- たてりょ～ (https://github.com/Rywwwwwww)
+- 星宮 (https://github.com/hosimiya7)
+- 坂口 (https://github.com/Zuzu0725)
 
 ## 技術スタック
 - Laravel8
@@ -32,6 +38,10 @@
   - ウォーターフォールほどでもないかな。
 
 ## Git
+### 注意事項
+必ず作業前・一日の初めなど着手するタイミングで最新状態pullしてください。
+
+不要なコンフリクトの原因にもなるし、コミット量が多くなります。
 
 ### 保護設定
 [参考サイト](https://qiita.com/da-sugi/items/ba3cd83e64c689795c50)
