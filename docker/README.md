@@ -1,5 +1,10 @@
 # Laravel環境構築
 
+## 環境変数について
+環境変数の利用には`.env`ファイルが必要です。
+
+リポジトリの`.env.example`をコピーして該当ファイルを作成してください。
+
 ## Build & Up
 docker-compose up -d --build  
 
@@ -34,10 +39,13 @@ TS設定用ファイル作成
 tsc --init  
 
 ## Laravel Mix(webpack.mix.js)の設定
+```php
 mix.js('resources/js/app.js', 'public/js').vue()  
     .postCss('resources/css/app.css', 'public/css', [  
         require('postcss-import'),  
         require('tailwindcss'),  
     ])
     .webpackConfig(require('./webpack.config'))  
-    .ts('resources/**/*', 'public/js/app.js');　<- 追記  
+    .ts('resources/**/*', 'public/js/app.js'); //　<- 追記  
+```
+
