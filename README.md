@@ -45,7 +45,7 @@
 
 ### コマンド : (ブランチ名)
 
-git pull origin develop : (develop) : developブランチの内容を最新にするためにpull
+git pull origin develop : (develop) : developブランチの内容を最新にするためにpull  
 git checkout -b feature/#number : (develop) : numberには対応したissueの数字を入れる。ブランチを切り替える
 
 作業 : (feature/#number) : 移動したブランチで作業
