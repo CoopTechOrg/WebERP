@@ -43,6 +43,23 @@
 
 不要なコンフリクトの原因にもなるし、コミット量が多くなります。
 
+### コマンド：(ブランチ名)
+git pull origin develop : (develop) : developブランチの内容を最新にするためにpull
+
+git checkout -b feature/#number : (develop) : numberには対応したissueの数字を入れる。ブランチを切り替える
+
+作業 : (feature/#number) : 移動したブランチで作業
+
+git push origin feature/#number : (feature/#number) : 作成したブランチから直したものだけpushする
+
+gihub側でプルリクを作成する(対応するissueのリンクをつける)
+
+git checkout develop : (feature/#number) : numberには対応したissueの数字を入れる。ブランチを切り替える
+
+git branch -d feature/#number : (develop) : プルリクが通ったブランチは削除する。ローカルブランチから削除
+
+git push --delete origin feature/#number : (develop) : リモートブランチから削除
+
 ### 保護設定
 [参考サイト](https://qiita.com/da-sugi/items/ba3cd83e64c689795c50)
 
@@ -72,7 +89,7 @@
 `docs` ブランチ
 #### 作業ブランチ
 なし
- 
+
 ## コーディングルール
 - PSRに則ってください。
 - テーブルの列にenumは許可しません。
@@ -145,6 +162,6 @@ src/
        ├─ Browser             E2Eテスト (Laravel Dusk)
        ├─ Feature             機能テスト (Feature test)
        └─ Unit                単体テスト (Unit test)
- 
- 
+
+
 ```
