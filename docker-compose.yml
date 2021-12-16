@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.3'
 
 services:
   app:
@@ -6,15 +6,15 @@ services:
       context: .
       dockerfile: ./docker/php/Dockerfile
       args:
-          USERNAME: ${USERNAME}
-          GROUPNAME: ${GROUPNAME}
-          UID: ${UID}
-          GID: ${GID}
+        USERNAME: ${USERNAME}
+        GROUPNAME: ${GROUPNAME}
+        UID: ${UID}
+        GID: ${GID}
     volumes:
       - ./src/:/app
     environment:
       - DB_CONNECTION=mysql
-      - DB_HOST=db
+      - DB_HOST=${DB_HOST}
       - DB_PORT=${DB_PORT}
       - DB_DATABASE=${DB_NAME}
       - DB_USERNAME=${DB_USER}
@@ -30,16 +30,3 @@ services:
       - app
     volumes:
       - ./src/:/app
-
-  db:
-    image: mysql:8.0
-    ports:
-      - ${DB_PORT}:3306
-    environment:
-      MYSQL_DATABASE: ${DB_NAME}
-      MYSQL_USER: ${DB_USER}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      TZ: 'Asia/Tokyo'
-    volumes:
-      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
