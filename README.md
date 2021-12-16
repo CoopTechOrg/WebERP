@@ -1,28 +1,35 @@
 ## 概要
+
 案件管理 WebERP作るよ
 
 ## アサイン (敬称略)
+
 ### テスト
+
 - ふな (https://github.com/funa074)
 - たてりょ～ (https://github.com/Rywwwwwww)
 
 ### デザイン(css)、画面描画部分
+
 - 星宮 (https://github.com/hosimiya7)
 - Shumpei (https://github.com/Shumpei0111)
 
 ### インフラDocker構築
+
 - つむぎ (https://github.com/it-tsumugi)
 - 坂口 (https://github.com/Zuzu0725)
 - 星宮 (https://github.com/hosimiya7) (Windows要員)
 
 ### バックエンド
+
 - たてりょ～ (https://github.com/Rywwwwwww)
 - 星宮 (https://github.com/hosimiya7)
 - 坂口 (https://github.com/Zuzu0725)
 
 ## 技術スタック
+
 - Laravel8
-  - DDD採用予定
+    - DDD採用予定
 - Vue3 + ts (laravel-mix)
 - DevOps(Docker) 非必須, plantUML 必須(設計ファイル見れなくても良い人はなくてもいいけど推奨)
 - CI/CD
@@ -30,15 +37,20 @@
 - css(sass)
 
 ## ERPとは？
+
 ### WebERP参考サイト
+
 [grandit](https://www.grandit.jp)
 
 ## 開発手法
+
 - アジャイル
-  - ウォーターフォールほどでもないかな。
+    - ウォーターフォールほどでもないかな。
 
 ## Git
+
 ### 注意事項
+
 必ず作業前・一日の初めなど着手するタイミングで最新状態pullしてください。
 
 不要なコンフリクトの原因にもなるし、コミット量が多くなります。
@@ -53,36 +65,55 @@ git push origin feature/#number : (feature/#number) : 作成したブランチ�
 
 gihub側でプルリクを作成する(対応するissueのリンクをつける)
 ### 保護設定
+
 [参考サイト](https://qiita.com/da-sugi/items/ba3cd83e64c689795c50)
 
 ### ブランチルール
+
 以下を参考に、作業ブランチから親ブランチへPR(Pull Request)投げてください
 
 ### 開発
+
 #### 親ブランチ
+
 `develop`ブランチ
+
 #### 作業ブランチ
+
 `feature/***`ブランチ
 
 ### アイデア
+
 #### 親ブランチ
+
 `idea`ブランチ
+
 #### 作業ブランチ
+
 `idea-feature/***`ブランチ
 
 ### 設計
+
 #### 親ブランチ
+
 `system_design`ブランチ
+
 #### 作業ブランチ
+
 `system_design-feature/***`ブランチ
 
 ### ドキュメント
+
 #### 親ブランチ
+
 `docs` ブランチ
+
 #### 作業ブランチ
-なし
+
+`docs-feature/***`
 
 ## コーディングルール
+
 - PSRに則ってください。
 - テーブルの列にenumは許可しません。
 - マジックナンバーも許容しません。
@@ -100,6 +131,8 @@ gihub側でプルリクを作成する(対応するissueのリンクをつける
 docker/                       Dockerコンテナ群
 src/
    ├─ app/                    メインコード
+   │   ├─ Actions
+   │   │   └─ Commands/       Fortify(Fortify認証 カスタマイズ用)
    │   ├─ Console/
    │   │   └─ Commands/       コマンド (Laravel標準)
    │   │
@@ -154,6 +187,4 @@ src/
        ├─ Browser             E2Eテスト (Laravel Dusk)
        ├─ Feature             機能テスト (Feature test)
        └─ Unit                単体テスト (Unit test)
-
-
 ```
