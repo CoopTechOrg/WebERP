@@ -175,6 +175,9 @@ src/
    │   ├─ Rules/              バリデーションルール (Laravel標準)
    │   │
    │   ├─ Services/           アプリケーションサービス
+   │   │   ├─ Command/           永続化処理
+   │   │   │   └─ DTO/           Data Transfer Object
+   │   │   └─ Query/             非永続化処理
    │   │
    │   ├─ ValueObjects/       値オブジェクト
    │   └─ View/               ビュー用のヘルパー
