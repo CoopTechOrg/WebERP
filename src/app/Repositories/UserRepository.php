@@ -2,13 +2,18 @@
 
 namespace App\Repositories;
 
-use App\Http\Requests\User\CreateAdminUserRequest;
+use App\Models\User;
 
 class UserRepository extends Repository
 {
-
-    public function createAdminUser(CreateAdminUserRequest $request)
+    /**
+     * @param array $data
+     * @return User
+     */
+    public function store(User $admin): User
     {
-        // TODO: Implement create() method.
+        $admin->save();
+
+        return $admin;
     }
 }
