@@ -134,6 +134,12 @@ git push --delete origin feature/#number : (develop) : リモートブランチ�
 - Routingにnameは必須とします。
 - DDDについては一度勉強会開きます :)
 
+## ide-helper コマンド
+
+```
+docker-compose exec app php artisan ide-helper:models -W
+```
+
 ## ディレクトリ階層(DDD込み)
 
 ```
