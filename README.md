@@ -182,8 +182,9 @@ src/
    │   │
    │   ├─ Services/           アプリケーションサービス
    │   │   ├─ Command/           永続化処理
-   │   │   │   └─ DTO/           Data Transfer Object
+   │   │   │   └─ Entity/        モデルを直接変更しないようにEntity経由
    │   │   └─ Query/             非永続化処理
+   │   │       └─ DTO/           Data Transfer Object
    │   │
    │   ├─ ValueObjects/       値オブジェクト
    │   └─ View/               ビュー用のヘルパー
