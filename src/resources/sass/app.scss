@@ -8,4 +8,7 @@
 @import 'variables';
 
 // 共通部分
-@import 'layouts'
+@import 'layouts';
+
+// 各ページごとのCSS
+@import './entrance';
