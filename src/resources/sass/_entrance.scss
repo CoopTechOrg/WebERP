@@ -2,11 +2,108 @@
 /*       ログイン・新規登録ページ       */
 /************************************/
 
+.entrance {
+    background-color: $login-bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
 .login,
 .register {
+    width: 904px;
+    margin: 0 auto;
 
     .title {
         text-align: center;
         font-weight: bold;
+        background-color: $login-bg;
+        padding-bottom: 30px;
+        font-size: 1.9em;
     }
+
+    &__wrapper {
+        background-color: $body-bg;
+        border-radius: 20px;
+        padding: 48px 142px 50px;
+        position: relative;
+
+        .other_entrance {
+            position: absolute;
+            display: inline-block;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-radius: $common_radius;
+            padding: 11px 37px;
+            width: 132px;
+            right: 40px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        .register_color {
+            background-color: $register_color;
+        }
+
+        .login_color {
+            background-color: $login_color;
+        }
+
+        .form_container {
+            margin-top: 66px;
+        }
+
+        .field {
+            max-width: 622px;
+            margin: 0 auto 24px;
+
+            &__common {
+                input {
+                    display: block;
+                    border: 1px solid;
+                    font-size: 16px;
+                    height: 66px;
+                    width: 100%;
+                    padding: 0 24px;
+                }
+
+                .forget_pass {
+                    display: inline-block;
+                    font-size: 0.7em;
+                    padding: 8px 0 0;
+                }
+            }
+
+            .common__label {
+                display: block;
+                font-size: 0.7em;
+                margin-bottom: 10px;
+            }
+        } // .field
+
+        .entrance__field {
+            padding-top: 26px;
+            margin-bottom: 0;
+            text-align: center;
+
+            .btn {
+                display: inline-block;
+                font-size: 1.7em;
+                font-weight: bold;
+                width: auto;
+                border-radius: $common_radius;
+                padding: 18px 102px;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }    
+        }
+
+    } // login__wrapper, register__wrapper
 }
