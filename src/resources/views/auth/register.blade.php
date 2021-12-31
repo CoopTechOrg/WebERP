@@ -9,20 +9,6 @@
             @csrf
 
             <div class="field">
-                <label for="name" class="common__label">{{ __('名前') }}</label>
-
-                <div class="field__common">
-                    <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                    @error('name')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="field">
                 <label for="email" class="common__label">{{ __('メールアドレス') }}</label>
 
                 <div class="field__common">
