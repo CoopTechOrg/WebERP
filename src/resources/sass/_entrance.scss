@@ -13,7 +13,8 @@
 }
 
 .login,
-.register {
+.register,
+.reset {
     width: 904px;
     margin: 0 auto;
 
@@ -23,6 +24,11 @@
         background-color: $login-bg;
         padding-bottom: 30px;
         font-size: 1.9em;
+    }
+
+    .attention {
+        text-align: center;
+        font-size: 0.8em;
     }
 
     &__wrapper {
@@ -44,6 +50,10 @@
             &:hover {
                 opacity: 0.8;
             }
+        }
+
+        .parallel_position {
+            right: 190px;
         }
 
         .register_color {
@@ -76,6 +86,10 @@
                     display: inline-block;
                     font-size: 0.7em;
                     padding: 8px 0 0;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
                 }
             }
 
@@ -97,7 +111,9 @@
                 font-weight: bold;
                 width: auto;
                 border-radius: $common_radius;
-                padding: 18px 102px;
+                // padding: 18px 102px;
+                padding: 18px 0;
+                width: 310px;
 
                 &:hover {
                     opacity: 0.8;
