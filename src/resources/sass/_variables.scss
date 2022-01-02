@@ -1,5 +1,16 @@
+//-----------------------------------
+// Color
+//-----------------------------------
+$primary_white: #ffffff;
+$primary_black: #222222;
+$primary_green: #a5d7d2;
+$primary_yellow: #fee8b2;
+
+
+//-----------------------------------
 // Body
-$body-bg: #ffffff;
+//-----------------------------------
+$body-bg: $primary_white;
 $sub-color_blue: #b3ddd8;
 $sub-color_red: #f7a7a7;
 $sub-color_yellow: #f1cf62;
@@ -9,10 +20,30 @@ $register: #fcebb7;
 
 $quotation-bg: #e7e7e7;
 
-$font-color_b: #222222;
-$font-color_w: #ffffff;
+$font-color_b: $primary_black;
+$font-color_w: $primary_white;
 
+//-----------------------------------
 // Typography
+//-----------------------------------
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+
+//-----------------------------------
+// theme-color [Login]
+//-----------------------------------
+$login_color: $primary_green;
+
+//-----------------------------------
+// theme-color [Register]
+//-----------------------------------
+$register_color: $primary_yellow;
+
+
+//-----------------------------------
+// UI
+//-----------------------------------
+// border-radius
+$common_radius: 6px;

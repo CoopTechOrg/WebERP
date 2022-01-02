@@ -1,64 +1,52 @@
-@extends('layouts.app')
+@extends('layouts.entrance')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<div class="container reset">
+    <h1 class="title">WebERP</h1>
+    <div class="reset__wrapper">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+        <a class="other_entrance register_color" href="{{ route('register') }}">{{ __('会員登録') }}</a>
+        <a class="other_entrance login_color parallel_position" href="{{ route('login') }}">{{ __('ログイン') }}</a>
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+        <div class="field">
+            <form class="form_container" method="POST" action="{{ route('password.update') }}">
+                @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                <input type="hidden" name="token" value="{{ $token }}">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <div class="field attention">
+                    <p>{{ __('再度パスワードボタンを登録してください。') }}</p>
+                    <p>{{ __('登録後、再度ログインボタンからログインしてください。') }}</p>
                 </div>
-            </div>
+
+                <div class="field">
+                    <label for="password" class="common__label">{{ __('パスワード') }}</label>
+
+                    <div class="field__common">
+                        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="password-confirm" class="common__label">{{ __('確認用パスワード') }}</label>
+
+                    <div class="field__common">
+                        <input id="password-confirm" type="password" class="" name="password_confirmation" required autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="field entrance__field">
+                    <button type="submit" class="btn login_color">
+                            {{ __('登録') }}
+                        </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
