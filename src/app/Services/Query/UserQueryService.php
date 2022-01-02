@@ -28,7 +28,7 @@ class UserQueryService
     {
         // todo: ここで管理者権限など設定する
         $values = [
-            'name' => $data['name'],
+            'name' => '管理者',
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ];
