@@ -78,7 +78,7 @@
                                     {{ Auth::user()->name }}<i class="fas fa-user"></i>
                                 </a>
                                 <ul class="menu__second-level">
-                                    <a class="" href="{{ route('logout') }}"
+                                    <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
