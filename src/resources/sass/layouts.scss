@@ -16,7 +16,7 @@
     }
     &-circle-container {
         position: relative;
-        margin: 0 0 0 1.5em;
+        margin: 0 0 0 1em;
     }
     &-circle {
         width: 40px;
@@ -46,6 +46,11 @@
             border: none;
         }
     }
+    &-login {
+        position: absolute;
+        top: 0em;
+        right: 1em;
+    }
 
     // ドロップダウン
 
@@ -69,7 +74,7 @@
         list-style: none;
         background-color: $body-bg;
         padding: 0 0.5em;
-        a{
+        a {
             text-decoration: none;
         }
     }
@@ -87,6 +92,8 @@
         visibility: hidden;
         opacity: 0;
         z-index: 1;
+        background-color: $body-bg;
+        width: 7em;
     }
 
     .menu > li:hover {
@@ -115,7 +122,7 @@
         left: 2em;
         width: 6px;
         height: 6px;
-        margin: 0 0 0 15px;
+        margin: 0 0 0 25px;
         border-right: 1px solid $font-color_b;
         border-bottom: 1px solid $font-color_b;
         -webkit-transform: rotate(45deg);
@@ -145,7 +152,6 @@
     li.menu__single ul.menu__second-level {
         position: absolute;
         top: 40px;
-        left: -0.05em;
         -webkit-transition: all 0.2s ease;
         transition: all 0.2s ease;
     }
@@ -159,5 +165,23 @@
     li i {
         display: inline;
         margin-left: 2em;
+    }
+    &-heading {
+        .flex {
+            display: flex;
+            justify-content: flex-start;
+        }
+        &-content {
+            width: 70px;
+            height: calc(100vh - 64px);
+            background-color: $sub-color_blue;
+            i {
+                width: 100%;
+                text-align: center;
+                font-size: 2em;
+                color: $body-bg;
+                margin-top: 0.75em;
+            }
+        }
     }
 }
