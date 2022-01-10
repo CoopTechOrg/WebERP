@@ -5,6 +5,11 @@ $primary_white: #ffffff;
 $primary_black: #222222;
 $primary_green: #a5d7d2;
 $primary_yellow: #fee8b2;
+$primary_grey: #f4f3f4;
+$primary_red: #fd9d9e;
+
+$secondary_yellow: #f1c962;
+$secondary_grey: #8e8e8e;
 
 
 //-----------------------------------
@@ -30,6 +35,11 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+//-----------------------------------
+// positive-color, negative-color
+//-----------------------------------
+$positive: $primary_green;
+$negative: $primary_red;
 
 //-----------------------------------
 // theme-color [Login]
