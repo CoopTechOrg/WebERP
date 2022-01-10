@@ -1,0 +1,200 @@
+.estimate {
+    // private variables
+    $e_padding_width: 42px;
+    // private variables
+
+
+    .common_height {
+        height: 30px;
+    }
+
+    .common_input {
+        border: 1px solid;
+        font-size: 16px;
+    }
+
+    .common_select { 
+        border: 1px solid;
+        font-size: 0.8em;
+        padding: 0 8px;
+    }
+
+    .estimate__container {
+        // display: flex;
+    }
+
+    .estimate__wrapper {
+        display: inline-block;
+        width: 1000px;
+        border: 1px solid $primary_black;
+        padding: 34px $e_padding_width;
+        margin: 56px 75px;
+    }
+
+    .estimate__save-control {
+        display: inline-block;
+        vertical-align: top;
+        margin: 56px 64px;
+
+        button {
+            display: block;
+        }
+        // flex-direction: column;
+    }
+
+    .estimate__header {
+        font-size: 1.1em;
+        font-weight: bold;
+        margin-bottom: 29px;
+    }
+
+    .estimate__detail {
+        margin-bottom: 65px;
+
+        .detail_label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .detail_block {
+            margin-bottom: 22px;
+        }
+
+        .client {
+            display: flex;
+
+            .client__left_block {
+                margin-right: 84px;
+            }
+        }
+
+        .base_width {
+            width: 484px;
+        }
+
+        .sub_width {
+            width: 286px;
+        }
+
+        .schedule {
+            display: flex;
+
+            .schedule__left_block {
+                margin-right: 27px;
+            }
+        }
+    } // .estimate__detail
+
+    .estimate__description {
+        border: 1px solid;
+        margin-left: calc(93px - $e_padding_width);
+        margin-right: calc(93px - $e_padding_width);
+        padding: 22px 32px;
+
+        .description-table {
+
+            .row {
+                // display: inline-blockの隙間対策
+                font-size: 0;
+                border: 1px solid $secondary_grey;
+                border-top: none;
+                padding: 5px 0;
+
+                &:not(.description-table__head):hover {
+                    background-color: $primary_grey;
+                }
+            }
+
+            .description-table__head {
+                display: inline-block;
+                border-top: 1px solid $secondary_grey;
+                background-color: $primary_grey;
+                font-weight: bold;
+                padding: 11px 0 16px;
+                width: 100%;
+
+                .head-label {
+                    display: inline-block;
+                    font-size: 0.9rem;
+                }
+            }
+
+            .row-first {
+                margin-left: 40px;
+            }
+
+            .row-last {
+                margin-right: 24px;
+            }
+
+            .name {
+                width: 168px;
+                margin-right: 24px;
+            }
+            .qty {
+                width: 56px;
+                margin-right: 38px;
+            }
+            .unit {
+                width: 56px;
+                margin-right: 80px;
+            }
+            .unit-price {
+                width: 56px;
+                margin-right: 125px;
+            }
+            .amount {
+                width: 77px;
+            }
+        } // .description-table
+
+        .add-line_btn {
+            font-size: 0.8em;
+            color: $secondary_grey;
+            display: inline-block;
+            margin-top: 14px;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            .circle {
+                display: inline-block;
+                height: 14px;
+                width: 14px;
+                border: 1px solid;
+                border-radius: 50%;
+                line-height: 12px;
+                text-align: center;
+                margin-right: 4px;
+            }
+
+            .btn_str {
+                display: inline-block;
+            }
+        } // .add-line_btn
+
+        .total {
+            display: flex;
+            justify-content: flex-end;
+
+            .total-table {
+                font-size: 0.9em;
+
+                .total-table__row {
+
+                    th,
+                    td {
+                        padding: 11px 0;
+                    }
+
+                    th {
+                        text-align: right;
+                    }
+                }
+            } // .total-table
+        } // .total
+
+    } // .estimate__description
+}

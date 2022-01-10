@@ -1,11 +1,9 @@
 <template>
-    <div class="row">
-        <input type="text" name="create_estimate" :id="name" class="name common_height common_input row-first">
-        <input type="text" name="create_estimate" :id="qty" class="qty common_height common_input">
-        <input type="text" name="create_estimate" :id="unit" class="unit common_height common_input">
-        <input type="text" name="create_estimate" :id="unitPrice" class="unit-price common_height common_input">
-        <input type="text" name="create_estimate" :id="amount" class="amount common_height common_input row-last">
-    </div>
+    <input :type="type" :name="actualName" :id="actualName"
+        :class="classes"
+        :value="value"
+        @input="$emit('input', $event.target.value)"
+    >
 </template>
 
 <script>
@@ -13,38 +11,30 @@ export default {
     name: 'CommonEstimateDetailInput',
     props: {
         id: Number,
+        type: String,
+        value: String | Number,
+        classes: String,
+        name: String,
     },
     computed: {
-        name: function() {
-            if( this.id ) {
-                return "name" + this.id;
+        actualName: function() {
+            if(this.id) {
+                return this.name + this.id;
             }
-            return "name{0}";
+            return this.name + "{0}";
         },
-        qty: function() {
-            if( this.id ) {
-                return "qty" + this.id;
-            }
-            return "qty{0}";
-        },
-        unit: function() {
-            if( this.id ) {
-                return "unit" + this.id;
-            }
-            return "unit{0}";
-        },
-        unitPrice: function() {
-            if( this.id ) {
-                return "unitPrice" + this.id;
-            }
-            return "unitPrice{0}";
-        },
-        amount: function() {
-            if( this.id ) {
-                return "amount" + this.id;
-            }
-            return "amount{0}";
-        },
-    }
+    },
 }
 </script>
+
+<style lang="scss" scoped>
+// 数値入力欄でスピンボタン（上下矢印のボタン）を非表示にする
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button { 
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+}
+input[type="number"] { 
+    -moz-appearance:textfield !important;
+} 
+</style>
