@@ -66,18 +66,28 @@
                         </div>
                         
                         <div id="detailList">
+                            <!-- 画面最下部にある合計値の項目は、Vueコンポーネント内に存在しているため、 position:absolute で位置を指定しています -->
                             <estimate-detail-inputs></estimate-detail-inputs>
                         </div>
                     </div>
                 </div>
                 <!-- 品名・数量等 End -->
 
+                <!-- 備考欄 Start -->
+                <div class="remark estimate__detail estimate__description">
+                    <label for="remarks" class="base_width detail_label">備考</label>
+                    <textarea name="remarks" id="remarks" class="remarks__textarea"></textarea>
+                </div>
+                <!-- 備考欄 End -->
+
             </div>
 
+            <!-- 保存削除ボタン Start -->
             <div class="estimate__save-control">
                 <button type="submit" class="common_control_btn save save_color"><i class="fas fa-plus-circle common_icon_margin"></i>{{__('保存')}}</button>
                 <a href="/home" class="common_control_btn delete delete_color"><i class="fas fa-trash-alt common_icon_margin"></i>{{__('削除')}}</a>
             </div>
+            <!-- 保存削除ボタン End -->
         </div>
 
     </form>

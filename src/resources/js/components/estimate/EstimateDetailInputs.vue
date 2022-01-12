@@ -65,20 +65,45 @@
         <div class="total">
             <table class="total-table">
                 <tr class="total-table__row total-table__subtotal">
-                    <th>小計</th>
-                    <td>¥{{ displaySubTotal }}</td>
+                    <th class="total-table__label">小計</th>
+                    <td class="total-table__item">¥{{ displaySubTotal }}</td>
                 </tr>
                 <tr class="total-table__row total-table__tax">
-                    <th>消費税({{ displayTaxRate }}%)</th>
-                    <td>¥{{ displayTaxValue }}</td>
+                    <th class="total-table__label">消費税({{ displayTaxRate }}%)</th>
+                    <td class="total-table__item">¥{{ displayTaxValue }}</td>
                 </tr>
                 <tr class="total-table__row total-table__total_amount">
-                    <th>合計</th>
-                    <td>¥{{ displayTotalAmount }}</td>
+                    <th class="total-table__label">合計</th>
+                    <td class="total-table__item">¥{{ displayTotalAmount }}</td>
                 </tr>
             </table>
         </div>
-        
+
+        <div class="absolute-total">
+            <div class="absolute-total__wrapper">
+                <div class="total__item">
+                    <p class="label">小計</p>
+                    <p class="price"><span class="common-price font-bold">{{ displaySubTotal }}</span>円</p>
+                </div>
+                <div class="total__item">
+                    <p class="label">消費税</p>
+                    <p class="price"><span class="common-price font-bold">{{ displayTaxValue }}</span>円</p>
+                </div>
+                <div class="total__item last-total__item">
+                    <p class="label font-bold">合計</p>
+                    <p class="price font-bold"><span class="last-total-price">{{ displayTotalAmount }}</span>円</p>
+                </div>
+                
+                
+                
+
+                <!-- 保存削除ボタン Start -->
+                <div class="estimate__save-control absolute-total-inner">
+                    <button type="submit" class="common_control_btn save save_color"><i class="fas fa-plus-circle common_icon_margin"></i>保存</button>
+                </div>
+                <!-- 保存削除ボタン End -->
+            </div>
+        </div>
     </div>
 </template>
 
