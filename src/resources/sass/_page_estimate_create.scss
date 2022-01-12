@@ -20,11 +20,10 @@
     }
 
     .estimate__container {
-        // display: flex;
+        display: flex;
     }
 
     .estimate__wrapper {
-        display: inline-block;
         width: 1000px;
         border: 1px solid $primary_black;
         padding: 34px $e_padding_width;
@@ -32,7 +31,6 @@
     }
 
     .estimate__save-control {
-        display: inline-block;
         vertical-align: top;
         margin: 56px 64px;
 

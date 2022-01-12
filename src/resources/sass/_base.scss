@@ -47,14 +47,18 @@ body {
 }
 
 .common_control_btn {
-    text-align: center;
     font-size: 0.9em;
     font-weight: 600;
     width: $common_btn_width;
     height: $common_btn_height;
     margin-bottom: 6px;
+    padding-left: 16px;
 
     &:hover {
         opacity: .8;
+    }
+
+    .common_icon_margin {
+        margin-right: 36px;
     }
 }

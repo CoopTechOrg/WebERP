@@ -75,8 +75,8 @@
             </div>
 
             <div class="estimate__save-control">
-                <button type="submit" class="common_control_btn save save_color">{{__('保存')}}</button>
-                <a href="/home" class="common_control_btn delete delete_color">{{__('削除')}}</a>
+                <button type="submit" class="common_control_btn save save_color"><i class="fas fa-plus-circle common_icon_margin"></i>{{__('保存')}}</button>
+                <a href="/home" class="common_control_btn delete delete_color"><i class="fas fa-trash-alt common_icon_margin"></i>{{__('削除')}}</a>
             </div>
         </div>
 
