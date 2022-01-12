@@ -29,24 +29,24 @@
                     <div class="detail_block schedule">
                         <div class="schedule__left_block">
                             <label for="publish_date" class="detail_label require">発行日</label>
-                            <input required type="text" name="publish_date" id="publish_date" class="common_input common_height">
+                            <input required type="date" name="publish_date" id="publish_date" class="common_input common_height">
                         </div>
                         <div>
                             <label for="effective_date" class="detail_label">有効期限</label>
-                            <input type="text" name="effective_date" id="effective_date" class="common_input common_height">
+                            <input type="date" name="effective_date" id="effective_date" class="common_input common_height">
                         </div>
                     </div>
 
                     <div class="detail_block estimate_number">
                         <div>
-                            <label for="estimate_number" class="detail_label">見積番号</label>
+                            <label for="estimate_number" class="detail_label base_width">見積番号</label>
                             <input type="text" name="estimate_number" id="estimate_number" class="common_input common_height base_width">
                         </div>
                     </div>
 
                     <div class="detail_block subject">
                         <div>
-                            <label for="subject" class="detail_label">件名</label>
+                            <label for="subject" class="detail_label base_width">件名</label>
                             <input type="text" name="subject" id="subject" class="common_input common_height base_width">
                         </div>
                     </div>
@@ -61,8 +61,8 @@
                             <span class="name row-first head-label">品番・品名</span>
                             <span class="qty head-label">数量</span>
                             <span class="unit head-label">単位</span>
-                            <span class="unit-price head-label">単価</span>
-                            <span class="amount row-last head-label">金額</span>
+                            <span class="unit-price price_width head-label">単価</span>
+                            <span class="price_width row-last head-label">金額</span>
                         </div>
                         
                         <div id="detailList">
@@ -76,7 +76,7 @@
 
             <div class="estimate__save-control">
                 <button type="submit" class="common_control_btn save save_color">{{__('保存')}}</button>
-                <button type="submit" class="common_control_btn delete delete_color">{{__('削除')}}</button>
+                <a href="/home" class="common_control_btn delete delete_color">{{__('削除')}}</a>
             </div>
         </div>
 

@@ -39,7 +39,11 @@
         button {
             display: block;
         }
-        // flex-direction: column;
+
+        .delete {
+            display: inline-block;
+            line-height: $common_btn_height;
+        }
     }
 
     .estimate__header {
@@ -141,10 +145,9 @@
                 margin-right: 80px;
             }
             .unit-price {
-                width: 56px;
-                margin-right: 125px;
+                margin-right: 69px;
             }
-            .amount {
+            .price_width {
                 width: 77px;
             }
         } // .description-table

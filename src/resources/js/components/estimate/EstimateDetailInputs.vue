@@ -43,7 +43,7 @@
                         :type="'number'"
                         :name="'unitPrice'"
                         :value="item.unitPriceValue"
-                        :classes="'unit-price common_height common_input'"
+                        :classes="'unit-price price_width common_height common_input'"
                         @input="updateUnitPriceValue( item.unitPriceValue, $event, item.id )"
                     >
                     </common-estimate-detail-input>
@@ -54,7 +54,7 @@
                         :type="'number'"
                         :name="'amount'"
                         :value="item.amountValue"
-                        :classes="'amount common_height common_input row-last'"
+                        :classes="'price_width common_height common_input row-last'"
                         @input="item.amountValue = $event"
                     >
                     </common-estimate-detail-input>
