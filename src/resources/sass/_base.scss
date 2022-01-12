@@ -50,8 +50,8 @@ body {
     text-align: center;
     font-size: 0.9em;
     font-weight: 600;
-    width: 140px;
-    height: 38px;
+    width: $common_btn_width;
+    height: $common_btn_height;
     margin-bottom: 6px;
 
     &:hover {
