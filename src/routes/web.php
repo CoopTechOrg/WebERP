@@ -27,4 +27,10 @@ Route::get('/estimate/create', function(){
     return view('/estimate/create');
 });
 
-Route::post('/estimate/testform', [CreateController::class, 'write1']);
+// debug
+Route::get('/estimate/show', function() {
+    return view('/estimate/show');
+});
+
+
+Route::post('/estimate/show', [CreateController::class, 'createEstimate']);

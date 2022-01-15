@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container estimate">
-    <form action="{{url('estimate/testform')}}" method="post" class="estimate__container">
+    <form action="{{url('estimate/show')}}" method="post" class="estimate__container">
         @csrf
         <div class="estimate__container">
             <div class="estimate__wrapper">

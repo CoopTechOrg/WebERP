@@ -7,10 +7,10 @@ use Illuminate\Http\Request;
 
 class CreateController extends Controller
 {
-    public function write1(Request $request)
+    public function createEstimate(Request $request)
     {
-        $data1 = $request->all();
-        var_dump($data1);
-        return view('/estimate/testform', compact('data1'));
+        $estimateData = $request->all();
+        // var_dump($estimateData);
+        return view('/estimate/show', compact('estimateData'));
     }
 }
