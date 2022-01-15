@@ -3,6 +3,13 @@
 
 * WebERP
 
+** 見積管理
+*** 見積一覧 (/estimate)
+**** 見積詳細(/estimate/show)
+**** 見積登録 (/estimate/create)
+**** 見積修正 (/estimate/edit)
+***** 見積書発行 (/estimate/issue-quotation)
+
 ** ホーム
 *** 受注管理
 **** 現在受注しているもの
