@@ -2,7 +2,7 @@
     <!-- 見積もり入力欄 -->
     <div id="estimateDetailContainer">
         <ul class="details">
-            <li class="details__item" v-for="item in ids" :key="item.id">
+            <li class="details__item" v-for="item in displayList" :key="item.id">
                 <div class="row">
                     <!-- 品番・品名 -->
                     <common-estimate-detail-input
@@ -61,20 +61,37 @@
                 </div>
             </li>
         </ul>
+
+        <!-- input hidden で送信する見積項目リスト computedのhiddenInputList参照 -->
+        <ul>
+            <li v-for="(item,ind) in hiddenInputList" :key="ind">
+                <div v-for="(obj,ind) in item" :key="ind">
+                    <input type="hidden" :name="key" :id="key" :value="val" v-for="( val, key ) in obj" :key="key">
+                </div>
+            </li>
+        </ul>
+        
         <p class="add-line_btn" @click="addLine"><span class="circle">+</span><span class="btn_str">行の追加</span></p>
         <div class="total">
             <table class="total-table">
                 <tr class="total-table__row total-table__subtotal">
                     <th class="total-table__label">小計</th>
                     <td class="total-table__item">¥{{ displaySubTotal }}</td>
+                    <!-- 小計 送信用 -->
+                    <input type="hidden" name="sub_total" :value="displaySubTotal">
                 </tr>
                 <tr class="total-table__row total-table__tax">
                     <th class="total-table__label">消費税({{ displayTaxRate }}%)</th>
                     <td class="total-table__item">¥{{ displayTaxValue }}</td>
+                    <!-- 税 送信用 -->
+                    <input type="hidden" name="tax_rate" :value="displayTaxRate">
+                    <input type="hidden" name="tax_value" :value="displayTaxValue">
                 </tr>
                 <tr class="total-table__row total-table__total_amount">
                     <th class="total-table__label">合計</th>
                     <td class="total-table__item">¥{{ displayTotalAmount }}</td>
+                    <!-- 合計金額 送信用 -->
+                    <input type="hidden" name="total_amount" :value="displayTotalAmount">
                 </tr>
             </table>
         </div>
@@ -114,6 +131,7 @@ export default {
     data: function() {
         return {
             taxRate: 0.1,
+            displayCount: 4,    // 初期表示されている入力行の数(最大10)
             ids: [
                 {
                     id: 1,
@@ -147,11 +165,91 @@ export default {
                     unitPriceValue: null,
                     amountValue: null,
                 },
+                {
+                    id: 5,
+                    nameValue: null,
+                    qtyValue: null,
+                    unitValue: null,
+                    unitPriceValue: null,
+                    amountValue: null,
+                },
+                {
+                    id: 6,
+                    nameValue: null,
+                    qtyValue: null,
+                    unitValue: null,
+                    unitPriceValue: null,
+                    amountValue: null,
+                },
+                {
+                    id: 7,
+                    nameValue: null,
+                    qtyValue: null,
+                    unitValue: null,
+                    unitPriceValue: null,
+                    amountValue: null,
+                },
+                {
+                    id: 8,
+                    nameValue: null,
+                    qtyValue: null,
+                    unitValue: null,
+                    unitPriceValue: null,
+                    amountValue: null,
+                },
+                {
+                    id: 9,
+                    nameValue: null,
+                    qtyValue: null,
+                    unitValue: null,
+                    unitPriceValue: null,
+                    amountValue: null,
+                },
+                {
+                    id: 10,
+                    nameValue: null,
+                    qtyValue: null,
+                    unitValue: null,
+                    unitPriceValue: null,
+                    amountValue: null,
+                },
             ],
             
         };
     },
     computed: {
+        displayList: function() {
+            // 行を追加をクリックすると、this.displayCountが増えるので、描画される行が増えます。
+            // 最大10行表示することができます。
+            return this.ids.slice(0, this.displayCount);
+        },
+        hiddenInputListLength: function() {
+            return 10 - this.displayCount;
+        },
+        hiddenInputList: function() {
+            // 表示していない見積項目を入力する行も input type="hidden" でサーバに送信します。
+            // そのために、入力最大行数（10行）から、表示されている行を引いた分の長さの配列を生成し、
+            // テンプレート側でv-forで回してHTMLを生成します。
+            // 「行を追加」をクリックすると、以下が連動して変化します。
+            //   1. 表示される行が増える
+            //   2. hiddenで隠されている行が減る
+
+            const len = this.hiddenInputListLength;
+            return Array(len).fill().map( (e, ind) => {
+                
+                return Array(5).fill().map( (e, index) => {
+                    const cnt = 10 - ind;
+                    let name = "";
+                    if( index === 0 ) { name = "name" + cnt; }
+                    if( index === 1 ) { name = "qty" + cnt; }
+                    if( index === 2 ) { name = "unit" + cnt; }
+                    if( index === 3 ) { name = "unitPrice" + cnt; }
+                    if( index === 4 ) { name = "amount" + cnt; }
+                    return { [name] : null};
+                } );
+
+            } );
+        },
         displayTaxRate: function() {
             return this.taxRate * 100;
         },
@@ -197,16 +295,11 @@ export default {
             this.ids[tgt].amountValue = value * this.ids[tgt].qtyValue;
         },
         addLine: function() {
-            const len = this.ids.length + 1;
-            const pushObj = {
-                id: len,
-                nameValue: null,
-                qtyValue: null,
-                unitValue: null,
-                unitPriceValue: null,
-                amountValue: null,
-            };
-            this.ids.push( pushObj );
+            if( this.displayCount === 10 ) {
+                alert( "これ以上行を追加することができません。別の見積書を作成してください。" );
+                return false;
+            }
+            this.displayCount++;
         },
     }
 }
