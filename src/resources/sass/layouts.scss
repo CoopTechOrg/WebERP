@@ -16,7 +16,7 @@
     }
     &-circle-container {
         position: relative;
-        margin: 0 0 0 1.5em;
+        margin: 0 0 0 1em;
     }
     &-circle {
         width: 40px;
@@ -92,7 +92,7 @@
         visibility: hidden;
         opacity: 0;
         z-index: 1;
-        background-color: #fff;
+        background-color: $body-bg;
         width: 7em;
     }
 
@@ -165,5 +165,23 @@
     li i {
         display: inline;
         margin-left: 2em;
+    }
+    &-heading {
+        .flex {
+            display: flex;
+            justify-content: flex-start;
+        }
+        &-content {
+            width: 70px;
+            height: calc(100vh - 64px);
+            background-color: $sub-color_blue;
+            i {
+                width: 100%;
+                text-align: center;
+                font-size: 2em;
+                color: $body-bg;
+                margin-top: 0.75em;
+            }
+        }
     }
 }

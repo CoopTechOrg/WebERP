@@ -78,7 +78,7 @@
                                     {{ Auth::user()->name }}<i class="fas fa-user"></i>
                                 </a>
                                 <ul class="menu__second-level">
-                                    <a class="" href="{{ route('logout') }}"
+                                    <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -98,7 +98,17 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="layout-heading">
+                <div class="flex">
+                    <div class="layout-heading-content">
+                        <i class="fas fa-home"></i>
+                        <i class="far fa-check-square"></i>
+                        <i class="far fa-credit-card"></i>
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
 </body>
