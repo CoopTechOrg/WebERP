@@ -6,7 +6,7 @@
         @csrf
         <div class="estimate__container">
             <div class="estimate__wrapper">
-                <div class="estimate__header">{{ __('見積書作成') }}</div>
+                <div class="estimate__header">見積書作成</div>
 
                 <!-- 概要入力 Start -->
                 <div class="estimate__detail">
@@ -84,8 +84,8 @@
 
             <!-- 保存削除ボタン Start -->
             <div class="estimate__save-control">
-                <button type="submit" class="common_control_btn save save_color"><i class="fas fa-plus-circle common_icon_margin"></i>{{__('保存')}}</button>
-                <a href="/home" class="common_control_btn delete delete_color"><i class="fas fa-trash-alt common_icon_margin"></i>{{__('削除')}}</a>
+                <button type="submit" class="common_control_btn save save_color"><i class="fas fa-plus-circle common_icon_margin"></i>保存</button>
+                <a href="/home" class="common_control_btn delete delete_color"><i class="fas fa-trash-alt common_icon_margin"></i>削除</a>
             </div>
             <!-- 保存削除ボタン End -->
         </div>

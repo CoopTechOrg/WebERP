@@ -10,7 +10,6 @@ class CreateController extends Controller
     public function createEstimate(Request $request)
     {
         $estimateData = $request->all();
-        // var_dump($estimateData);
         return view('/estimate/show', compact('estimateData'));
     }
 }

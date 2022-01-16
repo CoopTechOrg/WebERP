@@ -110,9 +110,6 @@
                     <p class="label font-bold">合計</p>
                     <p class="price font-bold"><span class="last-total-price">{{ displayTotalAmount }}</span>円</p>
                 </div>
-                
-                
-                
 
                 <!-- 保存削除ボタン Start -->
                 <div class="estimate__save-control absolute-total-inner">
