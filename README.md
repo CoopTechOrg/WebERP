@@ -183,7 +183,7 @@ src/
    │   ├─ Services/           アプリケーションサービス
    │   │   ├─ Command/           永続化処理
    │   │   │   └─ Entity/        モデルを直接変更しないようにEntity経由
-   │   │   └─ Query/             非永続化処理
+   │   │   └─ Query/             非永続化処理(return されるのはDTO)
    │   │       └─ DTO/           Data Transfer Object
    │   │
    │   ├─ ValueObjects/       値オブジェクト
@@ -205,3 +205,21 @@ src/
        ├─ Feature             機能テスト (Feature test)
        └─ Unit                単体テスト (Unit test)
 ```
+
+## テストの懸念
+
+### テストデータの取り扱い
+
+RefreshDatabase trait を使っている場合、テストをするとDBがリフレッシュされる。  
+テストデータが消えるという意味では問題ないが、テストデータ以外もRefreshされてしまう。  
+開発データもRefreshされてしまうのは困るので、テスト用のDBを作るか？
+
+`.env.testing`
+
+### ファサードの利用
+
+Unitテストは
+`PHPUnit\Framework\TestCase`
+ではなく
+`Tests\TestCase`
+をuseすること
