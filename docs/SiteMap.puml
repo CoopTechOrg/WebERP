@@ -7,7 +7,7 @@
 *** 見積一覧 (/estimate)
 **** 見積登録 (/estimate/create)
 **** 見積修正 (/estimate/edit)
-***** 見積書発行 (/estimate/issue-quotation)
+**** 見積詳細(/estimate/show)
 
 ** ホーム
 *** 受注管理
