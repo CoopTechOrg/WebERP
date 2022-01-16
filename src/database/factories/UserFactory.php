@@ -1,5 +1,7 @@
 <?php
 
+//テストユーザー作成
+
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;

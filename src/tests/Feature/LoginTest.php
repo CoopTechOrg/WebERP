@@ -15,70 +15,27 @@ class Login extends TestCase
 
     public function test_example()
     {
+	//テスト環境確認
+	dump(env("DB_DATABASE"));
+        dump(env("APP_ENV"));
+        dump(env("DB_HOST"));
+        dump(env("DB_USERNAME"));
+        dump(env("DB_PASSWORD"));
+	
         $response = $this->get('/');
         $response->assertStatus(200);
     }
 
-    /*===== 処理開始 =====*/
-    public function setUp():void
+    /*===== テストユーザーを登録する =====*/
+    public function test_insertuser()
     {
-        //セットアップメソッドを実行する。
-        parent::setUp();
-
-        //テスト用のダミーユーザの作成
+        //テストユーザの作成[UserFactory.phpに紐づけ]
         $this->user = User::create([
-            "name" => "auth_test_user",
+	    "name" => "管理者",
+            "email" => "auth_test@gmail.com",
+	    //パスワード暗号化させる(bcrypt)
             "password" => bcrypt('auth_test_password'),
         ]);
     }
 
-   
-    /*===== ログイン認証 ======*/
-    public function testLogin()
-    {
-        //現在作成されているユーザで認証のリクエスト
-        $response = $this->json('POST', route('/login'),[
-            'name' => 'auth_test_user',
-            'password' => 'auth_test_password',
-        ]);
-
-        //正しいレスポンスが返ってきているのか
-        $response->assertStatus(200);
-
-        //data typeチェック
-        $response->assertJson(fn (AssertableJson $json) =>
-            $json->whereType('success', 'boolean')
-            ->whereType('summary', 'string')
-            ->whereType('details', 'array')
-            ->whereAllType([
-                'details.token' => 'string',
-            ])
-        );
-
-        //テスト用のユーザがログインしているのか確認
-        $this->assertAuthenticatedAs($this->user);
-    }
-
-
-    /*===== ログアウト ======*/
-    public function testLogout()
-    {
-       //再度ログインしてtokenを取得する。
-       $response = $this->json('POST', route('route.login'),[
-           'name' => 'auth_checker',
-           'password' => 'auth_test_code',
-       ]);
-       $token = $response->json('details.token');
-
-       // actingAsで現在認証済みのユーザーを指定
-       $response = $this->actingAs($this->user);
-
-       //ログアウト処理
-       $response = $this->json('POST', route('/logout'),[
-           'Beare Token' => $token,
-       ]);
-
-       //正しいレスポンスが返ってきているかどうかを確認。
-       $response->assertStatus(200);
-    }
 }

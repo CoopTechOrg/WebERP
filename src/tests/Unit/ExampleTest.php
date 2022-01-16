@@ -13,13 +13,6 @@ class ExampleTest extends TestCase
      */
     public function test_example()
     {
-	
-	dump(env("DB_DATABASE"));
-	dump(env("APP_ENV"));
-	dump(env("DB_HOST"));		
-	dump(env("DB_USERNAME"));		
-	dump(env("DB_PASSWORD"));		
-
 
         $this->assertTrue(true);
     }
