@@ -4,16 +4,17 @@
 // reset
 @import 'reset';
 
-// おまじない
-@import 'base';
-
 // Variables
 @import 'variables';
+
+// おまじない
+@import 'base';
 
 // 共通部分
 @import 'layouts';
 
 // 各ページごとのCSS
 @import './entrance';
-@import './_page_estimate_index.scss'
->>>>>>> develop
+@import './_page_estimate_index.scss';
+@import './page_estimate_create';
+@import './page_estimate_show';
