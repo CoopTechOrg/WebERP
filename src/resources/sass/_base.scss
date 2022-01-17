@@ -13,3 +13,56 @@ body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
+
+
+//-------------------------------
+// 共通
+//-------------------------------
+.require {
+    &::after {
+        content: '必須';
+        background-color: $secondary_yellow;
+        font-size: 0.7em;
+        padding: 5px 12px;
+        margin-left: 14px;
+        border-radius: 12px;
+        vertical-align: middle;
+    }
+}
+
+.register_color {
+    background-color: $register_color;
+}
+
+.login_color {
+    background-color: $login_color;
+}
+
+.save_color {
+    background-color: $positive;
+}
+
+.delete_color {
+    background-color: $negative;
+}
+
+.neutral_color {
+    background-color: $neutral;
+}
+
+.common_control_btn {
+    font-size: 0.9em;
+    font-weight: 600;
+    width: $common_btn_width;
+    height: $common_btn_height;
+    margin-bottom: 6px;
+    padding-left: 16px;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    .common_icon_margin {
+        margin-right: 36px;
+    }
+}
