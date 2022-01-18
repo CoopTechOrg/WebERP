@@ -31,7 +31,7 @@ class Login extends TestCase
     {
         //テストユーザの作成[UserFactory.phpに紐づけ]
         $this->user = User::create([
-	    "name" => "管理者",
+	    "name" => "TEST_USER",
             "email" => "auth_test@gmail.com",
 	    //パスワード暗号化させる(bcrypt)
             "password" => bcrypt('auth_test_password'),
