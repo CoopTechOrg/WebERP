@@ -23,6 +23,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/estimate/index', function(){
+    return view('/estimate/index');
+});
+
 Route::get('/estimate/create', function(){
     return view('/estimate/create');
 });
