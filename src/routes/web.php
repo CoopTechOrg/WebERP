@@ -21,20 +21,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function(){
 
-Route::get('/estimate/index', function(){
-    return view('/estimate/index');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::get('/estimate/index', function(){
+        return view('/estimate/index');
+    });
+
+    Route::get('/estimate/create', function(){
+        return view('/estimate/create');
+    });
+
+    // debug
+    Route::get('/estimate/show', function() {
+        return view('/estimate/show');
+    });
+
+    Route::post('/estimate/show', [CreateController::class, 'createEstimate']);
 });
-
-Route::get('/estimate/create', function(){
-    return view('/estimate/create');
-});
-
-// debug
-Route::get('/estimate/show', function() {
-    return view('/estimate/show');
-});
-
-
-Route::post('/estimate/show', [CreateController::class, 'createEstimate']);
