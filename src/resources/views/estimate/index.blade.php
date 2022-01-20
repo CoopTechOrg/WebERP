@@ -5,7 +5,7 @@
     <div class="estimate_index">
         <div class="flex">
             <p>見積もり一覧</p>
-            <a href="" class="estimate_index_btn"><i class="fas fa-plus-circle"></i>見積追加</a>
+            <a href="create" class="btn_create"><i class="fas fa-plus-circle"></i>見積追加</a>
         </div>
         <div class="estimate_index_table">
             <table>
