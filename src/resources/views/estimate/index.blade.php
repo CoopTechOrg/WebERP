@@ -3,9 +3,9 @@
 @section('content')
 <div class="container estimate estimate_index_container">
     <div class="estimate_index">
-        <div class="estimate_index_top flex">
+        <div class="flex">
             <p>見積もり一覧</p>
-            <a href="" class="estimate_index_create"><i class="fas fa-plus-circle"></i>見積追加</a>
+            <a href="" class="estimate_index_btn"><i class="fas fa-plus-circle"></i>見積追加</a>
         </div>
         <div class="estimate_index_table">
             <table>
