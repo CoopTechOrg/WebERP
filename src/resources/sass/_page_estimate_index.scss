@@ -1,0 +1,33 @@
+.estimate_index_container {
+    width: 100%;
+}
+
+.estimate {
+    &_index {
+        margin: 30px 46px 0px 46px;
+        .flex {
+            justify-content: space-between;
+        }
+        &_btn {
+            background-color: $sub-color_blue;
+            text-align: center;
+            padding: 0.7em 1.5em;
+        }
+        &_table {
+            margin-top: 2em;
+            border: 1px solid $font-color_b;
+            table {
+                margin: 1em auto;
+            }
+            th,
+            td {
+                padding: 0 1.2em;
+            }
+        }
+        .btn_create {
+            background-color: $sub-color_blue;
+            text-align: center;
+            padding: 0.7em 1.5em;
+        }
+    }
+}

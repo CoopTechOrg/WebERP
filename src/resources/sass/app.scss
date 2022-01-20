@@ -15,5 +15,6 @@
 
 // 各ページごとのCSS
 @import './entrance';
+@import './_page_estimate_index.scss';
 @import './page_estimate_create';
 @import './page_estimate_show';
