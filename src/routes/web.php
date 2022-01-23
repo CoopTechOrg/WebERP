@@ -21,6 +21,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/pre-register', function(){
+    return view('/auth/pre_register');
+});
+
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
