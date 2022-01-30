@@ -26,10 +26,11 @@ class PreUserController extends Controller
         /**
          * @var PreUser $preUser
          */
+        $token = str_replace('/', '', Hash::make($request->email));
         $preUser = PreUser::create(
             [
                 'email' => $request->email,
-                'token' => Hash::make($request->email),
+                'token' => $token,
             ]
         );
 
