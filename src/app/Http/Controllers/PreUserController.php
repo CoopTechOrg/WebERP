@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\InvaliedVerifyTokenException;
+use App\Mail\RegisterUserMail;
+use App\Models\PreUser;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class PreUserController extends Controller
@@ -20,17 +23,17 @@ class PreUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         // プレユーザー登録
-        \App\Models\PreUser::insert(
+        /**
+         * @var PreUser $preUser
+         */
+        $preUser = PreUser::create(
             [
                 'email' => $request->email,
                 'token' => Hash::make($request->email),
             ]
         );
 
-        // Mail::send('pre_mail', $data, function($message){
-        //     $message->to($request->email)
-        //     ->subject('webERP本登録用URLの送信');
-        // });
+        Mail::to($preUser->email)->send(new RegisterUserMail($preUser->token));
 
         return redirect()->route('pre-complete');
     }
