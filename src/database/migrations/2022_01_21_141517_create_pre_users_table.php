@@ -15,6 +15,8 @@ class CreatePreUsersTable extends Migration
     {
         Schema::create('pre_users', function (Blueprint $table) {
             $table->id();
+            $table->string('email')->unique();
+            $table->string('token');
             $table->timestamps();
         });
     }
