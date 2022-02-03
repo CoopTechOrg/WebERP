@@ -133,6 +133,7 @@ git push --delete origin feature/#number : (develop) : リモートブランチ�
 - urlはケバブケースに統一します。
 - Routingにnameは必須とします。
 - DDDについては一度勉強会開きます :)
+- Viewでphpdocを記載する場合は `@php` でなく `<?php` を用いたほうが整形がされます。お得。
 
 ## ide-helper コマンド
 
