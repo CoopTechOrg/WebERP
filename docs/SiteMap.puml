@@ -2,12 +2,16 @@
 'https://plantuml.com/wbs-diagram
 
 * WebERP
+** 認証画面
+*** ログイン(/login)
+*** 新規登録(/register)
+*** 本登録認証(/verify/{token})
 
 ** 見積管理
 *** 見積一覧 (/estimate)
 **** 見積登録 (/estimate/create)
 **** 見積修正 (/estimate/edit)
-***** 見積書発行 (/estimate/issue-quotation)
+**** 見積詳細(/estimate/show)
 
 ** ホーム
 *** 受注管理

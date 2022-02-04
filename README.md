@@ -144,6 +144,7 @@ git push --delete origin feature/#number : (develop) : リモートブランチ�
 - urlはケバブケースに統一します。
 - Routingにnameは必須とします。
 - DDDについては一度勉強会開きます :)
+- Viewでphpdocを記載する場合は `@php` でなく `<?php` を用いたほうが整形がされます。お得。
 
 ## ide-helper コマンド
 
@@ -194,7 +195,7 @@ src/
    │   ├─ Services/           アプリケーションサービス
    │   │   ├─ Command/           永続化処理
    │   │   │   └─ Entity/        モデルを直接変更しないようにEntity経由
-   │   │   └─ Query/             非永続化処理
+   │   │   └─ Query/             非永続化処理(return されるのはDTO)
    │   │       └─ DTO/           Data Transfer Object
    │   │
    │   ├─ ValueObjects/       値オブジェクト
