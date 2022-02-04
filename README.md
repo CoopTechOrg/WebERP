@@ -216,3 +216,21 @@ src/
        ├─ Feature             機能テスト (Feature test)
        └─ Unit                単体テスト (Unit test)
 ```
+
+## テストの懸念
+
+### テストデータの取り扱い
+
+RefreshDatabase trait を使っている場合、テストをするとDBがリフレッシュされる。  
+テストデータが消えるという意味では問題ないが、テストデータ以外もRefreshされてしまう。  
+開発データもRefreshされてしまうのは困るので、テスト用のDBを作るか？
+
+`.env.testing`
+
+### ファサードの利用
+
+Unitテストは
+`PHPUnit\Framework\TestCase`
+ではなく
+`Tests\TestCase`
+をuseすること
