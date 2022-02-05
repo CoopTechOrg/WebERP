@@ -19,13 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::middleware(['guest'])->group(function(){
 
     Route::get('/pre-register', function(){
         return view('/auth/pre_register');
-    });
+    })->name('pre-register');
 
     Route::get('/pre-complete', function(){
         return view('/auth/pre_complete');
