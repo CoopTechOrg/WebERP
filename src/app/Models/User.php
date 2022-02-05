@@ -36,6 +36,11 @@ use Laravel\Sanctum\HasApiTokens;
  * @method static \Illuminate\Database\Eloquent\Builder|User whereRememberToken($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $family_name 姓
+ * @property string $given_name 名
+ * @property-read string $name_to_show
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereFamilyName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereGivenName($value)
  */
 class User extends Authenticatable
 {
@@ -66,4 +71,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getNameToShowAttribute(): string
+    {
+        return $this->family_name.' '.$this->given_name;
+    }
 }

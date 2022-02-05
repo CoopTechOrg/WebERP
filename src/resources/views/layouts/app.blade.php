@@ -59,10 +59,10 @@
                                             class="fas fa-user"></i></a>
                                 @endif
                                 <ul class="menu__second-level">
-                                    @if (Route::has('register'))
+                                    @if (Route::has('pre-register'))
                                         <li class="">
                                             <a class=""
-                                                href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                href="{{ route('pre-register') }}">{{ __('Register') }}</a>
                                         </li>
                                     @endif
                                 </ul>
@@ -75,7 +75,7 @@
                             <li class="menu__single">
                                 <a id="navbarDropdown" class="init-bottom" href="#" role="button" data-bs-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}<i class="fas fa-user"></i>
+                                    {{ Auth::user()->name_to_show }}<i class="fas fa-user"></i>
                                 </a>
                                 <ul class="menu__second-level">
                                     <a href="{{ route('logout') }}"

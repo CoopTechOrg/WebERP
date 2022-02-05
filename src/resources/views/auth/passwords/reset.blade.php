@@ -5,7 +5,7 @@
     <h1 class="title">WebERP</h1>
     <div class="reset__wrapper">
 
-        <a class="other_entrance register_color" href="{{ route('register') }}">{{ __('会員登録') }}</a>
+        <a class="other_entrance register_color" href="{{ route('pre-register') }}">{{ __('会員登録') }}</a>
         <a class="other_entrance login_color parallel_position" href="{{ route('login') }}">{{ __('ログイン') }}</a>
 
         <div class="field">
