@@ -25,7 +25,6 @@ class RegisterUserMail extends Mailable
      */
     public function __construct(string $token)
     {
-        //
         $this->token = $token;
     }
 

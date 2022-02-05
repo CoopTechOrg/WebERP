@@ -14,7 +14,6 @@ class AddFamilyNameAndGivenNameToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-
             $table->string('family_name')->comment('姓')->nullable(false)->after('id');
             $table->string('given_name')->comment('名')->nullable(false)->after('family_name');
         });
@@ -28,7 +27,6 @@ class AddFamilyNameAndGivenNameToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
             $table->dropColumn('family_name');
             $table->dropColumn('given_name');
         });

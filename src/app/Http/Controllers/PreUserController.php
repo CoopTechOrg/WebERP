@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\Hash;
 use App\Exceptions\InvaliedVerifyTokenException;
 use App\Mail\RegisterUserMail;
 use App\Models\PreUser;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
@@ -34,13 +34,9 @@ class PreUserController extends Controller
         $user = User::where('email', $request->email)->first();
         $isStoredPreUser = ($prevPreUser !== null);
         $isStoredUser = ($user !== null);
-        $token = str_replace('/', '', Hash::make($request->email));
+        $token = Hash::makeToUrl($request->email);
 
-        // 既に仮登録されていて、本登録されていない。
-        // もう一度トークンを作る
-        // 新しいトークンをDBに登録(更新)
-        // 新しいトークンでメールを送る
-        // メール送信済みの画面へ
+        // 仮登録済みで本登録がまだの場合、トークンを送る
         if ($isStoredPreUser === true && $isStoredUser === false) {
 
             $prevPreUser->token = $token;
@@ -51,9 +47,7 @@ class PreUserController extends Controller
             return redirect()->route('pre-complete');
         }
 
-        // 仮登録されていて、かつ本登録されている。
-        // 登録済みのことを伝える(まだ)withを使う
-        // ログイン画面に遷移
+        // 仮登録済み本登録済みの場合ログイン画面に遷移
         if ($isStoredPreUser === true && $isStoredUser === true) {
             return redirect('/login');
         }
@@ -84,11 +78,7 @@ class PreUserController extends Controller
     public function verify(Request $request, string $token): View
     {
 
-        // トークンが存在するか
-        // 有効期限内か(updated_at)
-        // 一致したら本会員登録
-        // 不一致だったらもう一度会員登録をしてくださいページ(会員登録の画面へのリンクwithでメッセージ)
-
+        // トークンが存在し、有効期限内か確認
         $query = PreUser::query()->where('token', $token);
         $user = $query->first();
         $isTokenExist = $query->exists();
@@ -111,8 +101,7 @@ class PreUserController extends Controller
     public function upgrade(Request $request, string $token)
     {
 
-        // pre_userのtableに一致するトークンがあるか確認
-        // ある場合、emailを取得
+        // pre_userに一致するtoken、emailがあるか確認
         $query = PreUser::query()->where('token', $token)->where('email', $request->email);
         $user = $query->first();
         $isTokenExist = $query->exists();
@@ -121,11 +110,7 @@ class PreUserController extends Controller
             throw new InvaliedVerifyTokenException();
         }
 
-        // 両方のパスワードが正しいかの確認
-        // 届いたデータを本登録用のuserTableに入れる
-        // ログインしたことにする
-        // ダッシュボード画面を表示する
-
+        // validationチェック
         $request->validate(
             [
                 'family_name' => ['required', 'string', 'max:255'],
@@ -134,9 +119,9 @@ class PreUserController extends Controller
             ]
         );
 
+        // userに登録
         DB::beginTransaction();
         try {
-            // requestをusertableにいれる
             User::create(
                 [
                     'family_name' => $request->family_name,
