@@ -33,6 +33,8 @@ Route::get('/verify/{token}', [App\Http\Controllers\PreUserController::class, 'v
 
 Route::post('/pre-register', [App\Http\Controllers\PreUserController::class, 'store'])->name('pre-register.store');
 
+Route::post('/auth/upgrade/{token}', [App\Http\Controllers\PreUserController::class, 'upgrade'])->name('auth.upgrade');
+
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
