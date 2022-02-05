@@ -38,4 +38,19 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * Undocumented function
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param Throwable $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function render($request, Throwable $e)
+    {
+        if ($e instanceof InvaliedVerifyTokenException) {
+            return redirect('/pre-register')->with(['status' => '不正なアクセスです']);
+        }
+        return parent::render($request, $e);
+    }
 }

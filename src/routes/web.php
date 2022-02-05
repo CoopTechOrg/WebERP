@@ -21,6 +21,24 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::middleware(['guest'])->group(function(){
+
+    Route::get('/pre-register', function(){
+        return view('/auth/pre_register');
+    });
+
+    Route::get('/pre-complete', function(){
+        return view('/auth/pre_complete');
+    })->name('pre-complete');
+
+    Route::get('/verify/{token}', [App\Http\Controllers\PreUserController::class, 'verify'])->name('verify');
+
+    Route::post('/pre-register', [App\Http\Controllers\PreUserController::class, 'store'])->name('pre-register.store');
+
+    Route::post('/auth/upgrade/{token}', [App\Http\Controllers\PreUserController::class, 'upgrade'])->name('auth.upgrade');
+
+});
+
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
