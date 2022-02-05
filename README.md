@@ -9,6 +9,17 @@
 - ふな (https://github.com/funa074)
 - たてりょ～ (https://github.com/Rywwwwwww)
 
+### テスト実施手順(2022/02/03追記)
+
+- ① appコンテナに入る
+- ② php artisan test　コマンドを叩き、テスト実施する
+- ※②を実施した際、上手くいかなかった場合は、php artisan config:cache --env="testing" コマンドを一度叩き、その後、②を実施してください。 
+
+メモ：②のコマンドを叩くと、テストDBにユーザーデータが一つ作成され、下記のテスト動作を実施してくれます。
+- ① ログイン処理を実施し、正しいパスワードを入力、ログイン成功させる
+- ② ログイン処理を実施し、誤ったパスワードを入力、ログイン失敗させる
+- ③ ①を実施後、ログアウト処理を行う
+
 ### デザイン(css)、画面描画部分
 
 - 星宮 (https://github.com/hosimiya7)
@@ -133,6 +144,7 @@ git push --delete origin feature/#number : (develop) : リモートブランチ�
 - urlはケバブケースに統一します。
 - Routingにnameは必須とします。
 - DDDについては一度勉強会開きます :)
+- Viewでphpdocを記載する場合は `@php` でなく `<?php` を用いたほうが整形がされます。お得。
 
 ## ide-helper コマンド
 
