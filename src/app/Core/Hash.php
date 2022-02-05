@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Hash as FacadesHash;
 
 class Hash extends FacadesHash
 {
-    public static function makeToUrl(string $value)
+    public static function makeToUrl(string $value):string
     {
-        str_replace('/', '', parent::make($value));
+        return str_replace('/', '', parent::make($value));
     }
 }
