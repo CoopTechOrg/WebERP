@@ -21,7 +21,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::middleware(['guest'])->group(function(){
 
     Route::get('/pre-register', function(){
@@ -37,7 +36,6 @@ Route::middleware(['guest'])->group(function(){
     Route::post('/pre-register', [App\Http\Controllers\PreUserController::class, 'store'])->name('pre-register.store');
 
     Route::post('/auth/upgrade/{token}', [App\Http\Controllers\PreUserController::class, 'upgrade'])->name('auth.upgrade');
-
 
 });
 
