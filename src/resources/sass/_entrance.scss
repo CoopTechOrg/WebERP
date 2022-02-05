@@ -73,6 +73,9 @@
                     width: 100%;
                     padding: 0 24px;
                 }
+            .--half{
+                width: 45%;
+            }
 
                 .forget_pass {
                     display: inline-block;
@@ -92,6 +95,12 @@
             }
         } // .field
 
+        .flex{
+            .field{
+                width: 100%;
+            }
+        }
+
         .entrance__field {
             padding-top: 26px;
             margin-bottom: 0;
@@ -110,7 +119,7 @@
                 &:hover {
                     opacity: 0.8;
                 }
-            }    
+            }
         }
 
     } // login__wrapper, register__wrapper
