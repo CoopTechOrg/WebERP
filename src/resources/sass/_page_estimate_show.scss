@@ -1,0 +1,176 @@
+.estimate-show {
+    display: flex;
+
+    .show__wrapper {
+        width: 1060px;
+        margin-top: 46px;
+        margin-left: 44px;
+        margin-right: 38px;
+    }
+
+    .show__detail {
+        display: flex;
+        padding: 0 50px;
+        margin-bottom: 40px;
+
+        .detail__table {
+            width: 480px;
+
+            th {
+                width: 137px;
+                padding-bottom: 16px;
+            }
+            td {
+                padding-bottom: 16px;
+                width: 343px;
+            }
+        }
+
+    }
+
+    .show__quotation {
+        background-color: #e3e3e3;
+        width: 100%;
+        padding: 60px 56px;
+
+        .quotaion__container {
+            background-color: $primary_white;
+            border: 1px solid $secondary_grey;
+            padding: 40px 110px;
+            min-height: 1092px;
+
+            .quotation__title {
+                text-align: center;
+                font-size: 1.3em;
+                font-weight: bold;
+                margin-bottom: 70px;
+            }
+
+            .quotation__summary {
+                display: flex;
+                margin-bottom: 52px;
+
+                .client-data {
+                    width: 372px;
+                    margin-right: 80px;
+
+                    .client {
+                        font-size: 1.3em;
+                        font-weight: bold;
+                        margin-bottom: 16px;
+                    }
+
+                    .subject {
+                        margin-bottom: 16px;
+                    }
+
+                    .txt {
+                        margin-bottom: 42px;
+                    }
+
+                    .quotation-total-wrapper {
+                        display: flex;
+                        font-weight: bold;
+                        border-bottom: 1px solid;
+                        justify-content: space-between;
+
+                        .total-price {
+                            font-size: 1.2em;
+                            text-align: right;
+                        }
+                    }
+                }
+
+                .my-data {
+                    font-size: 0.75em;
+
+                    .my-name {
+                        font-size: 1.35em;
+                        margin-bottom: 16px;
+                    }
+
+                    .my-address {
+                        margin-bottom: 14px;
+                    }
+
+                    .my-tel {
+                        margin-bottom: 9px;
+                    }
+                }
+            } // .quotation__summary
+
+            .quotation__detail {
+
+                .detail-table {
+                    width: 100%;
+                    font-size: 0.9em;
+                    margin-bottom: 28px;
+
+                    th {
+                        background-color: $primary_grey;
+                        border: 1px solid $secondary_grey;
+                        text-align: center;
+                    }
+
+                    th,
+                    td {
+                        overflow: hidden;
+                    }
+
+                    // 共通
+                    .common-row {
+                        height: 40px;
+                        vertical-align: middle;
+                        padding: 0 14px;
+                    }
+
+                    .item-row {
+                        border: 1px solid $secondary_grey;
+                        border-top: none;
+                        text-align: right;
+                    }
+
+                    .total-row {
+                        background-color: $primary_white;
+                        border: 1px solid $secondary_grey;
+                        border-top: none;
+                        text-align: right;
+                        vertical-align: middle;
+                        height: 52px;
+                    }
+
+                    th.total-row {
+                        text-align: left;
+                        padding-left: 5px;
+                    }
+
+                    .total-item {
+                        padding-right: 17px;
+                    }
+
+                    .product-name {
+                        text-align: left;
+                        width: 422px;
+                    }
+
+                    .qty-row {
+                        width: 96px;
+                    }
+
+                    .unit-row {
+                        width: 104px;
+                    }
+
+                    .amount-row {
+                        width: 100px;
+                    }
+
+                }
+            } // .quotation__detail
+
+            .remarks-area {
+                font-size: 0.9em;
+            }
+        } // .quotaion__container
+    }
+} // .estimate-show

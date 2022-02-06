@@ -59,10 +59,10 @@
                                             class="fas fa-user"></i></a>
                                 @endif
                                 <ul class="menu__second-level">
-                                    @if (Route::has('register'))
+                                    @if (Route::has('pre-register'))
                                         <li class="">
                                             <a class=""
-                                                href="{{ route('register') }}">{{ __('Register') }}</a>
+                                                href="{{ route('pre-register') }}">{{ __('Register') }}</a>
                                         </li>
                                     @endif
                                 </ul>
@@ -71,25 +71,26 @@
                         </ul>
 
                     @else
-                        <li class="">
-                            <a id="navbarDropdown" class="" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}<i class="fas fa-user"></i>
-                            </a>
-
-                            <div class="" aria-labelledby="navbarDropdown">
-                                <a class="" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                        <ul class="menu">
+                            <li class="menu__single">
+                                <a id="navbarDropdown" class="init-bottom" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name_to_show }}<i class="fas fa-user"></i>
                                 </a>
+                                <ul class="menu__second-level">
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                    class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
                     @endguest
                 </ul>
             </div>
@@ -97,7 +98,17 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="layout-heading">
+                <div class="flex">
+                    <div class="layout-heading-content">
+                        <i class="fas fa-home"></i>
+                        <i class="far fa-check-square"></i>
+                        <i class="far fa-credit-card"></i>
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    @yield('content')
+                </div>
+            </div>
         </main>
     </div>
 </body>

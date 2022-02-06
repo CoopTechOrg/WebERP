@@ -9,15 +9,15 @@
 - ふな (https://github.com/funa074)
 - たてりょ～ (https://github.com/Rywwwwwww)
 
-テスト実施手順(2022/02/03追記)
+### テスト実施手順(2022/02/03追記)
+
 - ① appコンテナに入る
 - ② php artisan test　コマンドを叩き、テスト実施する
-- ※②を実施した際、上手くいかなかった場合は、php artisan config:cache コマンドを一度叩き、
--   その後、②を実施してください。 
+- ※②を実施した際、上手くいかなかった場合は、php artisan config:cache --env="testing" コマンドを一度叩き、その後、②を実施してください。 
 
 メモ：②のコマンドを叩くと、テストDBにユーザーデータが一つ作成され、下記のテスト動作を実施してくれます。
-- ① ログイン処理実施し、正しいパスワードを入力し、ログイン成功させる
-- ② ログイン処理実施し、誤ったパスワードを入力し、ログイン失敗させる
+- ① ログイン処理を実施し、正しいパスワードを入力、ログイン成功させる
+- ② ログイン処理を実施し、誤ったパスワードを入力、ログイン失敗させる
 - ③ ①を実施後、ログアウト処理を行う
 
 ### デザイン(css)、画面描画部分
@@ -144,6 +144,7 @@ git push --delete origin feature/#number : (develop) : リモートブランチ�
 - urlはケバブケースに統一します。
 - Routingにnameは必須とします。
 - DDDについては一度勉強会開きます :)
+- Viewでphpdocを記載する場合は `@php` でなく `<?php` を用いたほうが整形がされます。お得。
 
 ## ide-helper コマンド
 
@@ -194,7 +195,7 @@ src/
    │   ├─ Services/           アプリケーションサービス
    │   │   ├─ Command/           永続化処理
    │   │   │   └─ Entity/        モデルを直接変更しないようにEntity経由
-   │   │   └─ Query/             非永続化処理
+   │   │   └─ Query/             非永続化処理(return されるのはDTO)
    │   │       └─ DTO/           Data Transfer Object
    │   │
    │   ├─ ValueObjects/       値オブジェクト
@@ -216,3 +217,21 @@ src/
        ├─ Feature             機能テスト (Feature test)
        └─ Unit                単体テスト (Unit test)
 ```
+
+## テストの懸念
+
+### テストデータの取り扱い
+
+RefreshDatabase trait を使っている場合、テストをするとDBがリフレッシュされる。  
+テストデータが消えるという意味では問題ないが、テストデータ以外もRefreshされてしまう。  
+開発データもRefreshされてしまうのは困るので、テスト用のDBを作るか？
+
+`.env.testing`
+
+### ファサードの利用
+
+Unitテストは
+`PHPUnit\Framework\TestCase`
+ではなく
+`Tests\TestCase`
+をuseすること
