@@ -134,8 +134,8 @@ return [
         ],
     ],
     'attributes' => [
-        'family_name' => '姓名',
-        'given_name' => '名前',
+        'family_name' => '姓',
+        'given_name' => '名',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
     ],
