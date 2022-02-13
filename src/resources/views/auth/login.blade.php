@@ -42,6 +42,10 @@
                 </div>
             </div>
 
+            <div class="field checkbox">
+                <input id="remember" type="checkbox" name="remember"><label for="remember">ログイン状態を保持する</label>
+            </div>
+
             <div class="field entrance__field">
                 <button type="submit" class="btn login_color">
                     {{ __('ログイン') }}

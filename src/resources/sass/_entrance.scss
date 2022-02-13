@@ -73,9 +73,9 @@
                     width: 100%;
                     padding: 0 24px;
                 }
-            .--half{
-                width: 45%;
-            }
+                .--half {
+                    width: 45%;
+                }
 
                 .forget_pass {
                     display: inline-block;
@@ -95,8 +95,8 @@
             }
         } // .field
 
-        .flex{
-            .field{
+        .flex {
+            .field {
                 width: 100%;
             }
         }
@@ -121,6 +121,56 @@
                 }
             }
         }
-
     } // login__wrapper, register__wrapper
+}
+
+/************************************/
+/*     　　 チェックボックス    　　 */
+/************************************/
+.checkbox {
+    input[type="checkbox"] {
+        display: none;
+        /* チェックボックスの代わりを成すラベル */
+    }
+    input[type="checkbox"] + label {
+        display: none;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        font-size: 14px;
+        padding-left: 25px;
+        padding-right: 10px;
+    }
+    /* ラベルの左に表示させる正方形のボックス□ */
+    input[type="checkbox"] + label::before {
+        content: "";
+        position: absolute;
+        display: block;
+        box-sizing: border-box;
+        width: 18px;
+        height: 18px;
+        margin-top: -10px;
+        left: 0;
+        top: 50%;
+        border: 1px solid;
+        border-color: $secondary_grey;
+        border-radius: 5px;
+        background-color: $primary_white;
+    }
+    /* チェックが入った時のレ点 */
+    input[type="checkbox"]:checked + label::after {
+        content: "";
+        position: absolute;
+        display: block;
+        box-sizing: border-box;
+        width: 18px;
+        height: 9px;
+        margin-top: -9px;
+        top: 50%;
+        left: 3px;
+        transform: rotate(-45deg);
+        border-bottom: 3px solid;
+        border-left: 3px solid;
+        border-color: $primary_green;
+    }
 }
