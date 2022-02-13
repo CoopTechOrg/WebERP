@@ -124,7 +124,9 @@
     } // login__wrapper, register__wrapper
 }
 
-// チェックボックス
+/************************************/
+/*     　　 チェックボックス    　　 */
+/************************************/
 .checkbox {
     input[type="checkbox"] {
         display: none;
@@ -151,9 +153,9 @@
         left: 0;
         top: 50%;
         border: 1px solid;
-        border-color: $secondary_grey; /* 枠の色変更 お好きな色を */
+        border-color: $secondary_grey;
         border-radius: 5px;
-        background-color: $primary_white; /* 背景の色変更 お好きな色を */
+        background-color: $primary_white;
     }
     /* チェックが入った時のレ点 */
     input[type="checkbox"]:checked + label::after {
@@ -169,6 +171,6 @@
         transform: rotate(-45deg);
         border-bottom: 3px solid;
         border-left: 3px solid;
-        border-color: $primary_green; /* チェックの色変更 お好きな色を */
+        border-color: $primary_green;
     }
 }
