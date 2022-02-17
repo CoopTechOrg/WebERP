@@ -4,7 +4,7 @@
 <div class="container login">
     <h1 class="title">WebERP</h1>
     <div class="login__wrapper">
-        <a class="other_entrance register_color" href="{{ route('register') }}">{{ __('会員登録') }}</a>
+        <a class="other_entrance register_color" href="{{ route('pre-register') }}">{{ __('会員登録') }}</a>
         <form class="form_container" method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -40,6 +40,10 @@
                         </a>
                     @endif
                 </div>
+            </div>
+
+            <div class="field checkbox">
+                <input id="remember" type="checkbox" name="remember"><label for="remember">ログイン状態を保持する</label>
             </div>
 
             <div class="field entrance__field">
