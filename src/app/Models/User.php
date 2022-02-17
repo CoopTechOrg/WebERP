@@ -47,9 +47,9 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        /*** family_name ***/
+        /*** family_nameカラム ***/
         'family_name',
-        /*** given_name ***/
+        /*** given_nameカラム ***/
         'given_name',
 
         'email',
