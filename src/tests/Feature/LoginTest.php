@@ -21,12 +21,10 @@ class LoginTest extends TestCase
 		
         /*===== テストユーザーを登録する =====*/
         $this->user = User::create([
-            //苗字登録
+            //名字登録
             "family_name" => "TEST",
             //名前登録
             "given_name" => "USER",
-            /***** いらないカラム、後日削除する *****/
-            "name" => "TEST_USER",
             //メールアドレス登録
             "email" => "auth_test@gmail.com",
             //パスワードハッシュ化させる(bcrypt)

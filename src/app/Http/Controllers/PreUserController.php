@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UpgradeUserRequest;
 
 class PreUserController extends Controller
 {
@@ -98,7 +99,7 @@ class PreUserController extends Controller
         };
     }
 
-    public function upgrade(Request $request, string $token)
+    public function upgrade(UpgradeUserRequest $request, string $token)
     {
 
         // pre_userに一致するtoken、emailがあるか確認
@@ -110,15 +111,6 @@ class PreUserController extends Controller
             throw new InvaliedVerifyTokenException();
         }
 
-        // validationチェック
-        $request->validate(
-            [
-                'family_name' => ['required', 'string', 'max:255'],
-                'given_name' => ['required', 'string', 'max:255'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
-            ]
-        );
-
         // userに登録
         DB::beginTransaction();
         try {
@@ -126,7 +118,7 @@ class PreUserController extends Controller
                 [
                     'family_name' => $request->family_name,
                     'given_name' => $request->given_name,
-                    'name' => 'あとで消す', //todo: 別のマイグレーションチケットで消す
+                    // 'name' => 'あとで消す', //todo: 別のマイグレーションチケットで消す
                     'email' => $user->email,
                     'password' => Hash::make($request->password),
                 ]
