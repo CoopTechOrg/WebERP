@@ -150,7 +150,7 @@ git push --delete origin feature/#number : (develop) : リモートブランチ�
 ## ide-helper コマンド
 
 ```
-docker-compose exec app php artisan ide-helper:models -W
+docker-compose exec app php artisan ide-helper:models -W -R
 ```
 
 ## ディレクトリ階層(DDD込み)
