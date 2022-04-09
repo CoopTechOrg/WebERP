@@ -78,6 +78,7 @@
                                     {{ Auth::user()->name_to_show }}<i class="fas fa-user"></i>
                                 </a>
                                 <ul class="menu__second-level">
+                                    <a href="{{ route('user.show')}}">プロフィール</a>
                                     <a href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">

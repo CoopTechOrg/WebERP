@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -40,35 +41,48 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function show($id)
+    public function show()
     {
-        //
+        // 現在認証されているユーザー情報を取得
+        $user = Auth::user();
+        
+        return view('profiles.show', compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        // 現在認証されているユーザー情報を取得
+        $user = Auth::user();
+
+        return view('profiles.edit', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        // 認証されているユーザー情報を取得
+        $user = Auth::user();
+        // editで変更した項目をそれぞれ代入する
+        $user->family_name = $request->family_name;
+        $user->given_name = $request->given_name;
+        $user->email = $request->email;
+        // 保存
+        $user->save();
+
+        return redirect()->route('user.show');
+        
     }
 
     /**
@@ -80,5 +94,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+
     }
 }

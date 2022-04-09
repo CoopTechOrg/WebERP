@@ -56,5 +56,9 @@ Route::middleware(['auth'])->group(function(){
         return view('/estimate/show');
     });
 
+    Route::get('/profile' ,[App\Http\Controllers\UserController::class, 'show'])->name('user.show');
+    Route::get('/profile/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('user.edit');
+    Route::post('/profile/update', [App\Http\Controllers\UserController::class, 'update'])->name('user.update');
+
     Route::post('/estimate/show', [CreateController::class, 'createEstimate']);
 });
