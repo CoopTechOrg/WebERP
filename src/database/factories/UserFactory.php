@@ -7,21 +7,39 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
+//追加
+//Userモデルを紐づけ
+use App\Models\User;
+
+//Factory使用
+use Faker\Factory as Faker;
+
 class UserFactory extends Factory
 {
+  
+    protected $model = User::class;
+
+
     /**
      * Define the model's default state.
      *
      * @return array
      */
+
     public function definition()
     {
+        //テストデータを英語で出力する
+        $faker_En = Faker::create('en_US');
+        //テストデータを日本語で出力する
+        $faker_Ja = Faker::create('ja_JP');
+
+
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'company_id' => rand(1, 10),                                        //企業ID
+            'family_name' => $faker_Ja->lastName,                               //名字
+            'given_name' => $faker_Ja->firstName,                               //名
+            'email' => $faker_En->unique()->email,                              //メアド【ランダムでメアド作成】
+            'password' => password_hash("TEST_PASS", PASSWORD_DEFAULT)          //パス【ハッシュ化】
         ];
     }
 

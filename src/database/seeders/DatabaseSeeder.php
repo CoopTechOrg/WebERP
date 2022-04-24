@@ -13,7 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-	//callメソッドでUsersTableSeeder呼び出し	
-	$this->call(UsersTableSeeder::class);
+        //callメソッドでUsersTableSeeder呼び出し	
+        $this->call(UsersTableSeeder::class);
+
+        //callメソッドでCompaniesTableSeeder呼び出し
+        $this->call(CompaniesTableSeeder::class);
     }
 }
