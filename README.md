@@ -26,9 +26,10 @@
 - ① appコンテナに入る
 - ② php artisan db:seed --env=testing　コマンドを叩き、テストデータ作成処理を実施
 
-メモ：上記のコマンドを叩くと、usersテーブルとcompaniesテーブルを削除し、テーブル構築し直します。
-　　　現在は、両方のテーブルに10個のテストデータを作成するよう設定していますが、
-　　　作成数を変更したい場合、WebERP/src/database/seeders/配下のUsersTableSeederファイルとCompaniesTableSeederファイル内のfactory(10)を任意の数字に変更すれば、その数分作成してくれます。
+メモ：上記のコマンドを叩くと、usersテーブルとcompaniesテーブルを削除し、テーブル構築し直します。作成するテストデータ数を変更したい場合、下記の手順に従って下さい。
+
+- ① 現在は、両方のテーブルに10個のテストデータを作成するよう設定しています。
+- ② 作成数を変更したい場合、WebERP/src/database/seeders/配下のUsersTableSeederファイルとCompaniesTableSeederファイル内のfactory(10)を任意の数字に変更すれば、その数分作成してくれます。
 
 ### デザイン(css)、画面描画部分
 
