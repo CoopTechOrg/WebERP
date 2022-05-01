@@ -28,10 +28,10 @@ class CompanyFactory extends Factory
     public function definition()
     {
         //テストデータを日本語で出力する
-        $faker_Ja = Faker::create('ja_JP');
+        $fakerJa = Faker::create('ja_JP');
 
         return [
-            'company_name' => $faker_Ja->unique()->company		//企業名
+            'company_name' => $fakerJa->unique()->company //企業名
         ];
     }
 }

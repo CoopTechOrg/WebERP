@@ -13,6 +13,8 @@ use App\Models\User;
 
 //Factory使用
 use Faker\Factory as Faker;
+//Hash使用
+use Illuminate\Support\Facades\Hash;
 
 class UserFactory extends Factory
 {
@@ -29,17 +31,17 @@ class UserFactory extends Factory
     public function definition()
     {
         //テストデータを英語で出力する
-        $faker_En = Faker::create('en_US');
+        $fakerEn = Faker::create('en_US');
         //テストデータを日本語で出力する
-        $faker_Ja = Faker::create('ja_JP');
+        $fakerJa = Faker::create('ja_JP');
 
 
         return [
-            'company_id' => rand(1, 10),                                        //企業ID
-            'family_name' => $faker_Ja->lastName,                               //名字
-            'given_name' => $faker_Ja->firstName,                               //名
-            'email' => $faker_En->unique()->email,                              //メアド【ランダムでメアド作成】
-            'password' => password_hash("TEST_PASS", PASSWORD_DEFAULT)          //パス【ハッシュ化】
+            'company_id' => rand(1, 10),           //企業ID
+            'family_name' => $fakerJa->lastName,  //名字
+            'given_name' => $fakerJa->firstName,  //名
+            'email' => $fakerEn->unique()->email, //メアド【ランダムでメアド作成】
+            'password' => Hash::make("TEST_PASS")  //パス【ハッシュ化】
         ];
     }
 
