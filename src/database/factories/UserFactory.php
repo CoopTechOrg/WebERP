@@ -37,11 +37,11 @@ class UserFactory extends Factory
 
 
         return [
-            'company_id' => rand(1, 10),           //企業ID
-            'family_name' => $fakerJa->lastName,  //名字
-            'given_name' => $fakerJa->firstName,  //名
+            'company_id' => rand(1, 10), //企業ID
+            'family_name' => $fakerJa->lastName, //名字
+            'given_name' => $fakerJa->firstName, //名
             'email' => $fakerEn->unique()->email, //メアド【ランダムでメアド作成】
-            'password' => Hash::make("TEST_PASS")  //パス【ハッシュ化】
+            'password' => Hash::make("TEST_PASS") //パス【ハッシュ化】
         ];
     }
 
