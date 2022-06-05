@@ -1,7 +1,5 @@
 <?php
 
-//テストユーザー作成
-
 namespace Database\Factories;
 
 use App\Models\Company;
@@ -9,13 +7,6 @@ use App\Models\User;
 use Faker\Factory as Faker;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
-
-//追加
-//Userモデルを紐づけ
-
-//Factory使用
-
-//Hash使用
 
 class UserFactory extends Factory
 {
