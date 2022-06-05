@@ -4,9 +4,11 @@ namespace App\Services\Command\Entity;
 
 use App\Models\Buyer;
 use App\Enum\ProgramLogicType;
+use App\Exceptions\ORMNotFoundException;
 use App\Exceptions\ProgramLogicException;
+use App\Repositories\BuyerRepository;
 
-class BuyerEntity implements IEntity
+class BuyerEntity extends Entity
 {
 
     private ?string $email;
@@ -29,22 +31,45 @@ class BuyerEntity implements IEntity
 
     private ?string $remarks;
 
-    public function __construct(array $params)
+    private ?Buyer $buyer;
+
+    private BuyerRepository $buyerRepository;
+
+    public function __construct()
     {
-        foreach ($params as $propName => $propValue) {
-            if (property_exists(self::class, $propName) === false) {
-                throw new ProgramLogicException(ProgramLogicType::propType());
-            }
-            $this->$propName = $propValue;
-        }
+        $this->buyerRepository = app(BuyerRepository::class);
     }
 
     public function getModel(): Buyer
     {
-        $buyer = new Buyer();
-        // $product->name = $this->name;
-        // $product->unit = $this->unit;
-        // $product->remarks = $this->remarks;
-        return $buyer;
+        return $this->buyer;
+    }
+
+    public static function getInstance(?int $id = null): self
+    {
+        $entity = new self();
+        $entity->id = $id;
+
+        $entity->getDefaultModel();
+
+        return $entity;
+    }
+
+    public static function new(): self
+    {
+        return self::getInstance();
+    }
+
+    public static function find(int $id): self
+    {
+        return self::getInstance($id);
+    }
+
+    protected function getDefaultModel(): void
+    {
+        $this->buyer = $this->id === null ? new Buyer() : $this->buyerRepository->select($this->id);
+        if($this->buyer === null) {
+            throw new ORMNotFoundException();
+        }
     }
 }

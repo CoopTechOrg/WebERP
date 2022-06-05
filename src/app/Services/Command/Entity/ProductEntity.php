@@ -4,7 +4,7 @@ namespace App\Services\Command\Entity;
 
 use App\Models\Product;
 
-class ProductEntity implements IEntity
+class ProductEntity extends Entity
 {
 
     private string $name;
