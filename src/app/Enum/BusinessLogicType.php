@@ -4,7 +4,7 @@ namespace App\Enum;
 
 abstract class ProgramLogicType
 {
-    public static function propType() :self
+    public static function logicType() :self
     {
         return new self();
     }
