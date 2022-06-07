@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use App\Enum\ProgramLogicType;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -50,6 +51,11 @@ class Handler extends ExceptionHandler
     {
         if ($e instanceof InvaliedVerifyTokenException) {
             return redirect('/pre-register')->with(['status' => '不正なアクセスです']);
+        }
+        if ($e instanceof ProgramLogicException) {
+            if ($e->type instanceof ProgramLogicType) {
+                // return redirect('/pre-register')->with(['status' => '不正なアクセスです']);
+            }
         }
         return parent::render($request, $e);
     }
