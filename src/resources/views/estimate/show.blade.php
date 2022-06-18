@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-<!-- 見積書詳細画面 -->
+<!-- 見積書確認画面 -->
 @section('content')
 <div class="container estimate estimate-show">
 

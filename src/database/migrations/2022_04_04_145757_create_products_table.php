@@ -15,11 +15,11 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->comment('商品/作業内容名')->nullable(false);
-            $table->string('unit')->comment('単位')->nullable(false);
-            $table->text('remarks')->comment('備考')->default(null);
-            $table->unsignedBigInteger('created_by')->comment('作成者');
-            $table->unsignedBigInteger('updated_by')->comment('更新者');
+            $table->string('name')->comment('商品/作業内容名')->nullable(false); //品名
+            $table->string('unit')->comment('単位')->nullable(false); //単位
+            $table->text('remarks')->comment('備考')->default(null); //備考
+            $table->unsignedBigInteger('created_by')->comment('作成者'); //ログインユーザー名
+            $table->unsignedBigInteger('updated_by')->comment('更新者'); //ログインユーザー名
             $table->timestamps();
         });
     }
