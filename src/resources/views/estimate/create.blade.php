@@ -1,10 +1,9 @@
-<!-- 見積もりデータ登録画面 -->
-
 @extends('layouts.app')
 
 @section('content')
 <div class="container estimate">
-    <form action="{{url('estimate/show')}}" method="post" class="estimate__container">
+    <!-- 後でindex変更する -->
+    <form action="{{url('estimate/index')}}" method="post" class="estimate__container">
         @csrf
         <div class="estimate__container">
             <div class="estimate__wrapper">
@@ -19,9 +18,9 @@
                             <select required name="clients" id="clients" class="common_select common_height base_width">
                                 <option hidden>選択してください</option>
                                 <!-- DB出来るまでのダミーデータ -->
-                                <option name="client_one" value="株式会社A">株式会社A</option>
-                                <option name="client_two" value="有限会社B">有限会社B</option>
-                                <option name="client_three" value="合同会社C">合同会社C</option>
+                                <option name="client_one" value="1">株式会社A</option>
+                                <option name="client_two" value="2">有限会社B</option>
+                                <option name="client_three" value="3">合同会社C</option>
                             </select>
                         </div>
                         <div>
@@ -29,9 +28,9 @@
                             <select required name="staff" id="staff" class="common_select common_height sub_width">
                                 <option hidden>選択してください</option>
                                 <!-- DB出来るまでのダミーデータ -->
-                                <option name="staff_one" value="砂糖">砂糖</option>
-                                <option name="staff_two" value="笹木">笹木</option>
-                                <option name="staff_three" value="木村">木村</option>
+                                <option name="staff_one" value="1">砂糖</option>
+                                <option name="staff_two" value="2">笹木</option>
+                                <option name="staff_three" value="3">木村</option>
                             </select>
                         </div>
                     </div>
