@@ -1,16 +1,11 @@
 <?php
 
-/* ===== Userデータ作成【データ作成テスト】 ===== */
-
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-
-//Userモデルを紐づけ
+use App\Core\Hash;
+use App\Models\Company;
 use App\Models\User;
-
-//Factory使用
-use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
@@ -19,14 +14,22 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-	
-    /********ダミーデータを作成*********/
-    public function run()
+    public function run(): void
     {
-	//userテーブル内のデータ全削除
-	User::truncate();
-
-        /***************** ユーザーデータ作成【factory】 *****************/	
+        User::truncate();
         User::factory(10)->create();
+
+        /**
+         * @var Company $company
+         */
+        $company = Company::inRandomOrder()->first();
+
+        $admin = new User();
+        $admin->email = env('ADMINISTRATOR_EMAIL');
+        $admin->company_id = $company->id;
+        $admin->family_name = "開発";
+        $admin->given_name = "責任者";
+        $admin->password = Hash::make(env('ADMINISTRATOR_PASS'));
+        $admin->save();
     }
 }

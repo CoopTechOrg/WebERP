@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Estimate;
 use Illuminate\Http\Request;
 
+//DB操作処理準備
+use Illuminate\Support\Facades\DB;
+
 class EstimateController extends Controller
 {
     /**
@@ -37,9 +40,30 @@ class EstimateController extends Controller
     //登録処理
     public function store(Request $request)
     {
+	/***********ログインユーザーのIDを取得する処理作る************/
 	//入力したデータを取得
-        $estimateData = $request->all();
+        //$estimateData = $request->all();
+	//カラムに紐づけ
+	$sql = [
+		"no" => $request->estimate_number,
+		"subject" => $request->subject,
+		//今後直す
+		"buyer_id" => 1,
+		//今後直す
+		"contacted_by" => 1,
+		"submited_at" => $request->publish_date,
+		"is_lost" => 0,
+		"expirationed_at" => $request->effective_date,
+		"remarks" => $request->remarks,
+		//今後直す(ログインID取得する)
+		"created_by" => 0,
+		"updated_by" => 0,	
+	];
         //DB登録処理
+	DB::table("estimates")->insert($sql);
+
+	/***********商品テーブルに登録する処理作る***********/
+
         //リダイレクト(後でリダイレクト先変更する)
 	return view("/estimate/index");
     }
