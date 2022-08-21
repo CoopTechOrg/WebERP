@@ -42,20 +42,17 @@ class EstimateController extends Controller
     {
 	/***********ログインユーザーのIDを取得する処理作る************/
 	//入力したデータを取得
-        //$estimateData = $request->all();
 	//カラムに紐づけ
 	$sql = [
 		"no" => $request->estimate_number,
 		"subject" => $request->subject,
-		//今後直す
-		"buyer_id" => 1,
-		//今後直す
-		"contacted_by" => 1,
+		"buyer_id" => $request->clients,
+		"contacted_by" => $request->staff,
 		"submited_at" => $request->publish_date,
 		"is_lost" => 0,
 		"expirationed_at" => $request->effective_date,
 		"remarks" => $request->remarks,
-		//今後直す(ログインID取得する)
+		//作成者
 		"created_by" => 0,
 		"updated_by" => 0,	
 	];
