@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 //DB操作処理準備
 use Illuminate\Support\Facades\DB;
+//Authファザード使用準備
+use Illuminate\Support\Facades\Auth;
 
 class EstimateController extends Controller
 {
@@ -44,7 +46,7 @@ class EstimateController extends Controller
 	//入力したデータを取得
 	//カラムに紐づけ
 	$sql = [
-		"no" => $request->estimate_number,
+		"no" => $request->estimate_number,	
 		"subject" => $request->subject,
 		"buyer_id" => $request->clients,
 		"contacted_by" => $request->staff,
@@ -52,8 +54,7 @@ class EstimateController extends Controller
 		"is_lost" => 0,
 		"expirationed_at" => $request->effective_date,
 		"remarks" => $request->remarks,
-		//作成者
-		"created_by" => 0,
+		"created_by" => Auth::id(),
 		"updated_by" => 0,	
 	];
         //DB登録処理
