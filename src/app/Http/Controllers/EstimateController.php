@@ -42,10 +42,10 @@ class EstimateController extends Controller
     //登録処理
     public function store(Request $request)
     {
-	/***********ログインユーザーのIDを取得する処理作る************/
 	//入力したデータを取得
 	//カラムに紐づけ
-	$sql = [
+	/***** estimatesテーブル部 *****/
+	$estimates_sql = [
 		"no" => $request->estimate_number,	
 		"subject" => $request->subject,
 		"buyer_id" => $request->clients,
@@ -57,11 +57,19 @@ class EstimateController extends Controller
 		"created_by" => Auth::id(),
 		"updated_by" => 0,	
 	];
+
+	/***** estimatesテーブル部 *****/
+	/*
+	$products_sql = [
+		"name" => 
+	];
+	*/
+		
         //DB登録処理
-	DB::table("estimates")->insert($sql);
+	DB::table("estimates")->insert($estimates_sql);
+	//DB::table("products")->insert($products_sql);	
 
-	/***********商品テーブルに登録する処理作る***********/
-
+	/***********商品テーブルに登録する処理作る***********/	
         //リダイレクト(後でリダイレクト先変更する)
 	return view("/estimate/index");
     }
