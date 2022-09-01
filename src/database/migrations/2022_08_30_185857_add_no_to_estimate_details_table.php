@@ -17,7 +17,7 @@ class AddNoToEstimateDetailsTable extends Migration
             //noを追加
             $table->after('id', function ($table) {
                 $table->string('no')->comment('見積もり番号')->nullable(false)->unique(); //明細の番号
-	    });
+            });
         });
     }
 

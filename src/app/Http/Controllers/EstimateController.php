@@ -42,36 +42,36 @@ class EstimateController extends Controller
     //登録処理
     public function store(Request $request)
     {
-	//入力したデータを取得
-	//カラムに紐づけ
-	/***** estimatesテーブル部 *****/
-	$estimates_sql = [
-		"no" => $request->estimate_number,	
-		"subject" => $request->subject,
-		"buyer_id" => $request->clients,
-		"contacted_by" => $request->staff,
-		"submited_at" => $request->publish_date,
-		"is_lost" => 0,
-		"expirationed_at" => $request->effective_date,
-		"remarks" => $request->remarks,
-		"created_by" => Auth::id(),
-		"updated_by" => 0,	
-	];
+        //入力したデータを取得
+        //カラムに紐づけ
+        /***** estimatesテーブル部 *****/
+        $estimates_sql = [
+            "no" => $request->estimate_number,	
+            "subject" => $request->subject,
+            "buyer_id" => $request->clients,
+            "contacted_by" => $request->staff,
+            "submited_at" => $request->publish_date,
+            "is_lost" => 0,
+            "expirationed_at" => $request->effective_date,
+            "remarks" => $request->remarks,
+            "created_by" => Auth::id(),
+            "updated_by" => 0,	
+        ];
 
-	/***** estimatesテーブル部 *****/
-	/*
-	$products_sql = [
-		"name" => 
-	];
-	*/
+	/***** estimate_detailsテーブル部 *****/
+        /*
+        $products_sql = [
+            "name" => 
+        ];
+        */
 		
         //DB登録処理
-	DB::table("estimates")->insert($estimates_sql);
-	//DB::table("products")->insert($products_sql);	
+        DB::table("estimates")->insert($estimates_sql);
+        //DB::table("products")->insert($products_sql);	
 
-	/***********商品テーブルに登録する処理作る***********/	
+        /***********商品テーブルに登録する処理作る***********/	
         //リダイレクト(後でリダイレクト先変更する)
-	return view("/estimate/index");
+        return view("/estimate/index");
     }
 
     /**
