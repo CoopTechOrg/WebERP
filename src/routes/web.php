@@ -47,19 +47,17 @@ Route::middleware(['auth'])->group(function(){
         return view('/estimate/index');
     });
    
-    //見積もり作成
+    // 見積もり作成
     Route::get('/estimate/create', function(){
         return view('/estimate/create');
     });
 
 
-    // debug
+    // debug(後でURL先変更)
     Route::get('/estimate/show', function() {
         return view('/estimate/show');
     });
 
-
-    //DB処理を行う(あとでpost先変える)
-    //Route::post('/estimate/show', [CreateController::class, 'createEstimate']);
-    Route::post('/estimate/index', [EstimateController::class, 'store']);
+    // 見積もりデータ登録
+    Route::post('/estimate/store', [EstimateController::class, 'store'])->name('estimate.store');
 });

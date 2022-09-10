@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container estimate">
-    <!-- 後でindex変更する -->
-    <form action="{{url('estimate/index')}}" method="post" class="estimate__container">
+    <form action="{{route('estimate.store')}}" method="post" class="estimate__container">
         @csrf
         <div class="estimate__container">
             <div class="estimate__wrapper">

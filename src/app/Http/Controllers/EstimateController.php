@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Estimate;
 use Illuminate\Http\Request;
 
-//DB操作処理準備
+// DB操作処理準備
 use Illuminate\Support\Facades\DB;
-//Authファザード使用準備
+// Authファザード使用準備
 use Illuminate\Support\Facades\Auth;
+// リクエストクラス使用準備
+use App\Http\Requests\EstimateRequest;
 
 class EstimateController extends Controller
 {
@@ -39,13 +41,13 @@ class EstimateController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //登録処理
-    public function store(Request $request)
+    // 登録処理
+    public function store(EstimateRequest $request)
     {
-        //入力したデータを取得
-        //カラムに紐づけ
+        // 入力したデータを取得
+        // カラムに紐づけ
         /***** estimatesテーブル部 *****/
-        $estimates_sql = [
+        $Estimates = [
             "no" => $request->estimate_number,	
             "subject" => $request->subject,
             "buyer_id" => $request->clients,
@@ -55,23 +57,16 @@ class EstimateController extends Controller
             "expirationed_at" => $request->effective_date,
             "remarks" => $request->remarks,
             "created_by" => Auth::id(),
-            "updated_by" => 0,	
+            "updated_by" => Auth::id(),	
         ];
 
-	/***** estimate_detailsテーブル部 *****/
-        /*
-        $products_sql = [
-            "name" => 
-        ];
-        */
 		
-        //DB登録処理
-        DB::table("estimates")->insert($estimates_sql);
-        //DB::table("products")->insert($products_sql);	
+        // DB登録処理
+        DB::table("estimates")->insert($Estimates);
 
         /***********商品テーブルに登録する処理作る***********/	
-        //リダイレクト(後でリダイレクト先変更する)
-        return view("/estimate/index");
+        // リダイレクト(後でリダイレクト先変更する)
+        return view(".estimate.index");
     }
 
     /**

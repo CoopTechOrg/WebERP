@@ -34,13 +34,8 @@ class UserFactory extends Factory
             'company_id' => $company->id,
             'family_name' => $fakerJa->lastName, //名字
             'given_name' => $fakerJa->firstName, //名
-<<<<<<< HEAD
-            'email' => $fakerEn->unique()->email, //メアド【ランダムでメアド作成】
-            'password' => Hash::make("TestPass") //パス【ハッシュ化】
-=======
             'email' => $fakerEn->unique()->email,
             'password' => Hash::make("TEST_PASS")
->>>>>>> c881ea3c2e7f63e9cc1788d1a6f5584fdaf622cb
         ];
     }
 
