@@ -47,7 +47,7 @@ class EstimateController extends Controller
         // 入力したデータを取得
         // カラムに紐づけ
         /***** estimatesテーブル部 *****/
-        $Estimates = [
+        $estimates = [
             "no" => $request->estimate_number,	
             "subject" => $request->subject,
             "buyer_id" => $request->clients,
@@ -62,11 +62,11 @@ class EstimateController extends Controller
 
 		
         // DB登録処理
-        DB::table("estimates")->insert($Estimates);
+        DB::table("estimates")->insert($estimates);
 
         /***********商品テーブルに登録する処理作る***********/	
         // リダイレクト(後でリダイレクト先変更する)
-        return view(".estimate.index");
+        return view("estimate.index");
     }
 
     /**

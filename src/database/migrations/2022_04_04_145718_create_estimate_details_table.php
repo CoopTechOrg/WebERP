@@ -15,7 +15,7 @@ class CreateEstimateDetailsTable extends Migration
     {
         Schema::create('estimate_details', function (Blueprint $table) {
             $table->id();
-            $table->string('no')->comment('見積もり番号')->nullable(false)->unique(); //明細の番号
+            $table->integer('no')->comment('見積もり番号')->nullable(false)->unique(); //明細の番号
             $table->unsignedBigInteger('estimate_id')->comment('見積ID')->nullable(false)->unique(); //estimatesのidカラム値
             $table->unsignedBigInteger('product_id')->comment('商品ID')->nullable(false); //productのidカラム値
             $table->integer('price')->comment('税抜単価')->nullable(false); //単価

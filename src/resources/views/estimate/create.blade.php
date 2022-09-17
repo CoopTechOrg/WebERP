@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container estimate">
-    <form action="{{route('estimate.store')}}" method="post" class="estimate__container">
+    <form action="{{ route('estimate.store') }}" method="post" class="estimate__container">
         @csrf
         <div class="estimate__container">
             <div class="estimate__wrapper">
