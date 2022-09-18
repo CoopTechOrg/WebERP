@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container estimate">
-    <form action="{{url('estimate/show')}}" method="post" class="estimate__container">
+    <form action="{{ route('estimate.store') }}" method="post" class="estimate__container">
         @csrf
         <div class="estimate__container">
             <div class="estimate__wrapper">
@@ -16,12 +16,20 @@
                             <label for="clients" class="detail_label require">取引先</label>
                             <select required name="clients" id="clients" class="common_select common_height base_width">
                                 <option hidden>選択してください</option>
+                                <!-- DB出来るまでのダミーデータ -->
+                                <option name="clients" value="1">株式会社A</option>
+                                <option name="clients" value="2">有限会社B</option>
+                                <option name="clients" value="3">合同会社C</option>
                             </select>
                         </div>
                         <div>
                             <label for="staff" class="detail_label require">社名・担当者</label>
                             <select required name="staff" id="staff" class="common_select common_height sub_width">
                                 <option hidden>選択してください</option>
+                                <!-- DB出来るまでのダミーデータ -->
+                                <option name="staff" value="1">砂糖</option>
+                                <option name="staff" value="2">笹木</option>
+                                <option name="staff" value="3">木村</option>
                             </select>
                         </div>
                     </div>

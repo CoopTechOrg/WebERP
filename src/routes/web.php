@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Estimate\CreateController;
+use App\Http\Controllers\EstimateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,15 +46,18 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/estimate/index', function(){
         return view('/estimate/index');
     });
-
+   
+    // 見積もり作成
     Route::get('/estimate/create', function(){
         return view('/estimate/create');
     });
 
-    // debug
+
+    // debug(後でURL先変更)
     Route::get('/estimate/show', function() {
         return view('/estimate/show');
     });
 
-    Route::post('/estimate/show', [CreateController::class, 'createEstimate']);
+    // 見積もりデータ登録
+    Route::post('/estimate/store', [EstimateController::class, 'store'])->name('estimate.store');
 });

@@ -1,3 +1,5 @@
+<!-- 見積もり一覧表示画面 -->
+
 @extends('layouts.app')
 
 @section('content')
@@ -7,6 +9,8 @@
             <p>見積もり一覧</p>
             <a href="create" class="btn_create"><i class="fas fa-plus-circle"></i>見積追加</a>
         </div>
+
+        <!-- 表示部分 -->
         <div class="estimate_index_table">
             <table>
                 <tr>
@@ -52,6 +56,10 @@
                         ¥1,200,000
                     </td>
                 </tr>
+            </table>
+
+            <!-- DBと紐づけ -->
+            <table>
             </table>
         </div>
     </div>
