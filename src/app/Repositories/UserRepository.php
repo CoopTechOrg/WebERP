@@ -3,9 +3,15 @@
 namespace App\Repositories;
 
 use App\Models\User;
+use App\Core\Database\Builer\SaveModelTrait;
+use App\Core\Database\Builer\SelectModelTrait;
 
 class UserRepository extends Repository
 {
+
+    use SelectModelTrait;
+    use SaveModelTrait;
+
     /**
      * @param array $data
      * @return User
@@ -15,5 +21,10 @@ class UserRepository extends Repository
         $admin->save();
 
         return $admin;
+    }
+
+    public function modelClass(): string
+    {
+        return User::class;
     }
 }
