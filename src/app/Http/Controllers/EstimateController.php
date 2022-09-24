@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 // Authファザード使用準備
 use Illuminate\Support\Facades\Auth;
 // リクエストクラス使用準備
-use App\Http\Requests\EstimateRequest;
+use App\Http\Requests\Estimate\CreateRequest;
 
 class EstimateController extends Controller
 {
@@ -42,7 +42,7 @@ class EstimateController extends Controller
      */
 
     // 登録処理
-    public function store(EstimateRequest $request)
+    public function store(CreateRequest $request)
     {
         // 入力したデータを取得
         // カラムに紐づけ
