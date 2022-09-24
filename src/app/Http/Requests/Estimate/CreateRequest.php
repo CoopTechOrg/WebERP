@@ -11,9 +11,9 @@ class CreateRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return (bool) 'true';
+        return 'true';
     }
 
     /**

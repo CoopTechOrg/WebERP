@@ -5,11 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Estimate;
 use Illuminate\Http\Request;
 
-// DB操作処理準備
 use Illuminate\Support\Facades\DB;
-// Authファザード使用準備
 use Illuminate\Support\Facades\Auth;
-// リクエストクラス使用準備
 use App\Http\Requests\Estimate\CreateRequest;
 
 class EstimateController extends Controller
@@ -59,6 +56,7 @@ class EstimateController extends Controller
             "created_by" => Auth::id(),
             "updated_by" => Auth::id(),	
         ];
+
 		
         // DB登録処理
         DB::table("estimates")->insert($estimates);
