@@ -59,7 +59,6 @@ class EstimateController extends Controller
             "created_by" => Auth::id(),
             "updated_by" => Auth::id(),	
         ];
-
 		
         // DB登録処理
         DB::table("estimates")->insert($estimates);
