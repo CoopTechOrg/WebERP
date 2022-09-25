@@ -38,32 +38,28 @@ class EstimateController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // 登録処理
+
     public function store(CreateRequest $request)
     {
-        // 入力したデータを取得
-        // カラムに紐づけ
-        /***** estimatesテーブル部 *****/
-        $estimates = [
-            "no" => $request->estimate_number,	
-            "subject" => $request->subject,
-            "buyer_id" => $request->clients,
-            "contacted_by" => $request->staff,
-            "submited_at" => $request->publish_date,
-            "is_lost" => 0,
-            "expirationed_at" => $request->effective_date,
-            "remarks" => $request->remarks,
-            "created_by" => Auth::id(),
-            "updated_by" => Auth::id(),	
-        ];
+        // Estimateモデル呼び出し
+        $estimates = new Estimate;
+        $estimates->no = $request->estimate_number;
+        $estimates->subject = $request->subject;
+        $estimates->buyer_id = $request->clients;
+        $estimates->contacted_by = $request->staff;
+        $estimates->submitted_at = $request->publish_date;
+        $estimates->is_lost = 0;
+        $estimates->expired_at = $request->effective_date;
+        $estimates->remarks = $request->remarks;
+        $estimates->created_by = Auth::id();
+        $estimates->updated_by = Auth::id();
+        $estimates->save();
+ 
 
-		
-        // DB登録処理
-        DB::table("estimates")->insert($estimates);
+	// todo:今後商品登録処理作成
+	
 
-        /***********商品テーブルに登録する処理作る***********/	
-        // リダイレクト(後でリダイレクト先変更する)
-        return view("estimate.index");
+        return redirect("estimate/index");
     }
 
     /**
