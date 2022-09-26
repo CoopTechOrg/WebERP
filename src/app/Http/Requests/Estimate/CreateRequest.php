@@ -21,7 +21,7 @@ class CreateRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         // 見積も作成画面で入力したデータを取得
         return [
@@ -33,5 +33,15 @@ class CreateRequest extends FormRequest
             "effective_date" => 'required',
             "remarks" => 'required',
         ];
+    }
+
+    /**
+     * タイトル取得
+     *
+     * @return string
+     */
+    public function getSubject(): string
+    {
+        return $this->get("subject");
     }
 }

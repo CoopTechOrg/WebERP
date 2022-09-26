@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Estimate\CreateRequest;
 use App\Models\Estimate;
 use Illuminate\Http\Request;
-
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\Estimate\CreateRequest;
+use Illuminate\Support\Facades\DB;
 
 class EstimateController extends Controller
 {
@@ -34,7 +33,7 @@ class EstimateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
 
@@ -45,8 +44,8 @@ class EstimateController extends Controller
         // カラムに紐づけ
         /***** estimatesテーブル部 *****/
         $estimates = [
-            "no" => $request->estimate_number,	
-            "subject" => $request->subject,
+            "no" => $request->estimate_number,
+            "subject" => $request->getSubject(),
             "buyer_id" => $request->clients,
             "contacted_by" => $request->staff,
             "submited_at" => $request->publish_date,
@@ -54,14 +53,14 @@ class EstimateController extends Controller
             "expirationed_at" => $request->effective_date,
             "remarks" => $request->remarks,
             "created_by" => Auth::id(),
-            "updated_by" => Auth::id(),	
+            "updated_by" => Auth::id(),
         ];
 
-		
+
         // DB登録処理
         DB::table("estimates")->insert($estimates);
 
-        /***********商品テーブルに登録する処理作る***********/	
+        /***********商品テーブルに登録する処理作る***********/
         // リダイレクト(後でリダイレクト先変更する)
         return view("estimate.index");
     }
@@ -69,7 +68,7 @@ class EstimateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Estimate  $estimate
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function show(Estimate $estimate)
@@ -80,7 +79,7 @@ class EstimateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Estimate  $estimate
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function edit(Estimate $estimate)
@@ -91,8 +90,8 @@ class EstimateController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Estimate  $estimate
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Estimate $estimate)
@@ -103,7 +102,7 @@ class EstimateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Estimate  $estimate
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function destroy(Estimate $estimate)
