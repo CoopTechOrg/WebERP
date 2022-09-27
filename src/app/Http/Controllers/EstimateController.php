@@ -34,32 +34,34 @@ class EstimateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\Estimate\CreateRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
 
 
     public function store(CreateRequest $request)
     {
-        // Estimateモデル呼び出し
-        $estimates = new Estimate;
-        $estimates->no = $request->estimate_number;
-        $estimates->subject = $request->subject;
-        $estimates->buyer_id = $request->clients;
-        $estimates->contacted_by = $request->staff;
-        $estimates->submitted_at = $request->publish_date;
-        $estimates->is_lost = 0;
-        $estimates->expired_at = $request->effective_date;
-        $estimates->remarks = $request->remarks;
-        $estimates->created_by = Auth::id();
-        $estimates->updated_by = Auth::id();
-        $estimates->save();
+        // 入力したデータを取得
+        // カラムに紐づけ
+        /***** estimatesテーブル部 *****/
+        $estimates = [
+            "no" => $request->getNumber(),
+            "subject" => $request->getSubject(),
+            "buyer_id" => $request->getClients(),
+            "contacted_by" => $request->getStaff(),
+            "submited_at" => $request->getPublishdate(),
+            "is_lost" => 0,
+            "expirationed_at" => $request->getEffectivedate(),
+            "remarks" => $request->getRemarks(),
+            "created_by" => Auth::id(),
+            "updated_by" => Auth::id(),
+        ];
  
 
-	// todo:今後商品登録処理作成
+	    // todo:今後商品登録処理作成
 	
 
-        return redirect("estimate/index");
+        return redirect('estimate/index');
     }
 
     /**

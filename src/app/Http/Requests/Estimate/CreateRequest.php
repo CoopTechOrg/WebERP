@@ -16,12 +16,13 @@ class CreateRequest extends FormRequest
         return true;
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         // 見積も作成画面で入力したデータを取得
         return [
@@ -33,5 +34,82 @@ class CreateRequest extends FormRequest
             "effective_date" => 'required',
             "remarks" => 'required',
         ];
+    }
+
+
+    /**
+     * 見積もり番号取得
+     *
+     * @return string
+     */
+    public function getNumber(): string
+    {
+        return $this->get('estimate_number');
+    }
+    
+
+    /**
+     * 件名取得
+     *
+     * @return string
+     */
+    public function getSubject(): string
+    {
+        return $this->get('subject');
+    }
+
+
+    /**
+     * 取引先ID取得
+     *
+     * @return int
+     */
+    public function getClients(): int
+    {
+        return $this->get('clients');
+    }
+
+
+    /**
+     * 担当者ID取得
+     *
+     * @return int
+     */
+    public function getStaff(): int
+    {
+        return $this->get('staff');
+    }
+
+
+    /**
+     * 発行日取得
+     *
+     * @return string
+     */
+    public function getPublishdate(): string
+    {
+        return $this->get('publish_date');
+    }
+
+
+    /**
+     * 有効期限取得
+     *
+     * @return string
+     */
+    public function getEffectivedate(): string
+    {
+        return $this->get('effective_date');
+    }
+
+
+    /**
+     * 備考取得
+     *
+     * @return int
+     */
+    public function getRemarks(): string
+    {
+        return $this->get('remarks');
     }
 }
