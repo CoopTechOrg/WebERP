@@ -49,6 +49,19 @@ class CreateRequest extends FormRequest
     
 
     /**
+<<<<<<< Updated upstream
+=======
+     * 見積もり番号取得
+     *
+     * @return string
+     */
+    public function getEstimatenumber(): string
+    {
+        return $this->get("estimate_number");
+    }
+
+    /**
+>>>>>>> Stashed changes
      * 件名取得
      *
      * @return string
@@ -111,5 +124,55 @@ class CreateRequest extends FormRequest
     public function getRemarks(): string
     {
         return $this->get('remarks');
+    }
+
+    /**
+     * 取引先取得
+     *
+     * @return int
+     */
+    public function getClients(): int
+    {
+        return $this->get("clients");
+    }
+
+    /**
+     * 社名・担当者取得
+     *
+     * @return int
+     */
+    public function getStaff(): int
+    {
+        return $this->get("staff");
+    }
+
+    /**
+     * 発行日取得
+     *
+     * @return string
+     */
+    public function getPublishdate(): string
+    {
+        return $this->get("publish_date");
+    }
+
+    /**
+     * 有効期限取得
+     *
+     * @return string
+     */
+    public function getEffectivedate(): string
+    {
+        return $this->get("effective_date");
+    }
+
+    /**
+     * 有効期限取得
+     *
+     * @return string
+     */
+    public function getRemarks(): string
+    {
+        return $this->get("remarks");
     }
 }

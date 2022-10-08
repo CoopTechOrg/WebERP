@@ -37,13 +37,16 @@ class EstimateController extends Controller
      * @param  \App\Http\Requests\Estimate\CreateRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
     public function store(CreateRequest $request)
     {
         // 入力したデータを取得
-        // カラムに紐づけ
         /***** estimatesテーブル部 *****/
+<<<<<<< Updated upstream
         $estimates = [
             "no" => $request->getNumber(),
             "subject" => $request->getSubject(),
@@ -62,6 +65,26 @@ class EstimateController extends Controller
 	
 
         return redirect('estimate/index');
+=======
+        // Estimateモデル呼び出し
+        $estimates = new Estimate();
+        $estimates->no = $request->getEstimatenumber();
+        $estimates->subject = $request->getSubject();
+        $estimates->buyer_id = $request->getClients();
+        $estimates->contacted_by = $request->getStaff();
+        $estimates->submitted_at = $request->getPublishdate();
+        $estimates->is_lost = 0;
+        $estimates->expired_at = $request->getEffectivedate();
+        $estimates->remarks = $request->getRemarks();
+        $estimates->created_by = Auth::id();
+        $estimates->updated_by = Auth::id();
+        $estimates->save();
+
+
+        /***********商品テーブルに登録する処理作る***********/
+        // リダイレクト(後でリダイレクト先変更する)
+        return redirect()->route('estimate-list');
+>>>>>>> Stashed changes
     }
 
     /**

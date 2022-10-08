@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('/estimate/index', function(){
         return view('/estimate/index');
-    });
+    })->name('estimate-list');
    
     // 見積もり作成
     Route::get('/estimate/create', function(){
