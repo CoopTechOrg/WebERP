@@ -49,8 +49,6 @@ class CreateRequest extends FormRequest
     
 
     /**
-<<<<<<< Updated upstream
-=======
      * 見積もり番号取得
      *
      * @return string
@@ -61,7 +59,6 @@ class CreateRequest extends FormRequest
     }
 
     /**
->>>>>>> Stashed changes
      * 件名取得
      *
      * @return string
