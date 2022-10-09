@@ -35,17 +35,6 @@ class CreateRequest extends FormRequest
             "remarks" => 'required',
         ];
     }
-
-
-    /**
-     * 見積もり番号取得
-     *
-     * @return string
-     */
-    public function getNumber(): string
-    {
-        return $this->get('estimate_number');
-    }
     
 
     /**
@@ -72,9 +61,9 @@ class CreateRequest extends FormRequest
     /**
      * 取引先ID取得
      *
-     * @return int
+     * @return string 
      */
-    public function getClients(): int
+    public function getClients(): string
     {
         return $this->get('clients');
     }
@@ -83,64 +72,11 @@ class CreateRequest extends FormRequest
     /**
      * 担当者ID取得
      *
-     * @return int
+     * @return string
      */
-    public function getStaff(): int
+    public function getStaff(): string
     {
         return $this->get('staff');
-    }
-
-
-    /**
-     * 発行日取得
-     *
-     * @return string
-     */
-    public function getPublishdate(): string
-    {
-        return $this->get('publish_date');
-    }
-
-
-    /**
-     * 有効期限取得
-     *
-     * @return string
-     */
-    public function getEffectivedate(): string
-    {
-        return $this->get('effective_date');
-    }
-
-
-    /**
-     * 備考取得
-     *
-     * @return int
-     */
-    public function getRemarks(): string
-    {
-        return $this->get('remarks');
-    }
-
-    /**
-     * 取引先取得
-     *
-     * @return int
-     */
-    public function getClients(): int
-    {
-        return $this->get("clients");
-    }
-
-    /**
-     * 社名・担当者取得
-     *
-     * @return int
-     */
-    public function getStaff(): int
-    {
-        return $this->get("staff");
     }
 
     /**

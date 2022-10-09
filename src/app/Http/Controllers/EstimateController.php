@@ -42,7 +42,7 @@ class EstimateController extends Controller
         // 入力したデータを取得
         /***** estimatesテーブル部 *****/
         $estimates = [
-            "no" => $request->getNumber(),
+            "no" => $request->getEstimatenumber(),
             "subject" => $request->getSubject(),
             "buyer_id" => $request->getClients(),
             "contacted_by" => $request->getStaff(),
