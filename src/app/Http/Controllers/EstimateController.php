@@ -39,7 +39,7 @@ class EstimateController extends Controller
      */
     public function store(CreateRequest $request)
     {
-	// Estimateモデル呼び出し
+        // Estimateモデル呼び出し
         $estimates = new Estimate();
         $estimates->no = $request->getEstimatenumber();
         $estimates->subject = $request->getSubject();
