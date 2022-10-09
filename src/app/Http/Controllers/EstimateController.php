@@ -54,7 +54,7 @@ class EstimateController extends Controller
  
 
         // todo:今後商品登録処理作成
-        return redirect()->route('estimate.list');
+        return redirect()->route('estimatelist');
     }
 
     /**
