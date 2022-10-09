@@ -39,22 +39,22 @@ class EstimateController extends Controller
      */
     public function store(CreateRequest $request)
     {
-        $estimates = [
-            "no" => $request->getEstimatenumber(),
-            "subject" => $request->getSubject(),
-            "buyer_id" => $request->getClients(),
-            "contacted_by" => $request->getStaff(),
-            "submited_at" => $request->getPublishdate(),
-            "is_lost" => 0,
-            "expirationed_at" => $request->getEffectivedate(),
-            "remarks" => $request->getRemarks(),
-            "created_by" => Auth::id(),
-            "updated_by" => Auth::id(),
-        ];
- 
+	// Estimateモデル呼び出し
+        $estimates = new Estimate();
+        $estimates->no = $request->getEstimatenumber();
+        $estimates->subject = $request->getSubject();
+        $estimates->buyer_id = $request->getClients();
+        $estimates->contacted_by = $request->getStaff();
+        $estimates->submitted_at = $request->getPublishdate();
+        $estimates->is_lost = 0;
+        $estimates->expired_at = $request->getEffectivedate();
+        $estimates->remarks = $request->getRemarks();
+        $estimates->created_by = Auth::id();
+        $estimates->updated_by = Auth::id();
+        $estimates->save(); 
 
         // todo:今後商品登録処理作成
-        return redirect()->route('estimatelist');
+        return redirect()->route('estimate.index');
     }
 
     /**
