@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Estimate\CreateRequest;
 use App\Models\Estimate;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Estimate\CreateRequest;
+use Illuminate\Http\RedirectResponse;
 
 class EstimateController extends Controller
 {
@@ -33,36 +34,28 @@ class EstimateController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param  \App\Http\Requests\Estimate\CreateRequest  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-
-    // 登録処理
-    public function store(CreateRequest $request)
+    public function store(CreateRequest $request): RedirectResponse
     {
-        // 入力したデータを取得
-        // カラムに紐づけ
-        /***** estimatesテーブル部 *****/
-        $estimates = [
-            "no" => $request->estimate_number,
-            "subject" => $request->getSubject(),
-            "buyer_id" => $request->clients,
-            "contacted_by" => $request->staff,
-            "submited_at" => $request->publish_date,
-            "is_lost" => 0,
-            "expirationed_at" => $request->effective_date,
-            "remarks" => $request->remarks,
-            "created_by" => Auth::id(),
-            "updated_by" => Auth::id(),
-        ];
+        // Estimateモデル呼び出し
+        $estimates = new Estimate();
+        $estimates->no = $request->getEstimatenumber();
+        $estimates->subject = $request->getSubject();
+        $estimates->buyer_id = $request->getClients();
+        $estimates->contacted_by = $request->getStaff();
+        $estimates->submitted_at = $request->getPublishdate();
+        $estimates->is_lost = 0;
+        $estimates->expired_at = $request->getEffectivedate();
+        $estimates->remarks = $request->getRemarks();
+        $estimates->created_by = Auth::id();
+        $estimates->updated_by = Auth::id();
+        $estimates->save(); 
 
 
-        // DB登録処理
-        DB::table("estimates")->insert($estimates);
-
-        /***********商品テーブルに登録する処理作る***********/
-        // リダイレクト(後でリダイレクト先変更する)
-        return view("estimate.index");
+        // todo:今後商品登録処理作成
+        return redirect()->route('estimate.index');
     }
 
     /**

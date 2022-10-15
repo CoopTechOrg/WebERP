@@ -16,6 +16,7 @@ class CreateRequest extends FormRequest
         return true;
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -33,15 +34,79 @@ class CreateRequest extends FormRequest
             "effective_date" => 'required',
             "remarks" => 'required',
         ];
-    }
+    }   
+
 
     /**
-     * タイトル取得
+     * 見積もり番号取得
+     *
+     * @return string
+     */
+    public function getEstimatenumber(): string
+    {
+        return $this->get("estimate_number");
+    }
+
+
+    /**
+     * 件名取得
      *
      * @return string
      */
     public function getSubject(): string
     {
-        return $this->get("subject");
+        return $this->get('subject');
+    }
+
+
+    /**
+     * 取引先ID取得
+     *
+     * @return string 
+     */
+    public function getClients(): string
+    {
+        return $this->get('clients');
+    }
+
+
+    /**
+     * 担当者ID取得
+     *
+     * @return string
+     */
+    public function getStaff(): string
+    {
+        return $this->get('staff');
+    }
+
+    /**
+     * 発行日取得
+     *
+     * @return string
+     */
+    public function getPublishdate(): string
+    {
+        return $this->get("publish_date");
+    }
+
+    /**
+     * 有効期限取得
+     *
+     * @return string
+     */
+    public function getEffectivedate(): string
+    {
+        return $this->get("effective_date");
+    }
+
+    /**
+     * 有効期限取得
+     *
+     * @return string
+     */
+    public function getRemarks(): string
+    {
+        return $this->get("remarks");
     }
 }
