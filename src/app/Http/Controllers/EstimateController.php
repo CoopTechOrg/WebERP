@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Estimate;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Estimate\CreateRequest;
+use Illuminate\Http\RedirectResponse;
 
 class EstimateController extends Controller
 {
@@ -37,7 +37,7 @@ class EstimateController extends Controller
      * @param  \App\Http\Requests\Estimate\CreateRequest  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(CreateRequest $request)
+    public function store(CreateRequest $request): RedirectResponse
     {
         // Estimateモデル呼び出し
         $estimates = new Estimate();
@@ -52,6 +52,7 @@ class EstimateController extends Controller
         $estimates->created_by = Auth::id();
         $estimates->updated_by = Auth::id();
         $estimates->save(); 
+
 
         // todo:今後商品登録処理作成
         return redirect()->route('estimate.index');
