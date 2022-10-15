@@ -34,8 +34,8 @@ class CreateRequest extends FormRequest
             "effective_date" => 'required',
             "remarks" => 'required',
         ];
-    }
-    
+    }   
+
 
     /**
      * 見積もり番号取得
@@ -46,6 +46,7 @@ class CreateRequest extends FormRequest
     {
         return $this->get("estimate_number");
     }
+
 
     /**
      * 件名取得

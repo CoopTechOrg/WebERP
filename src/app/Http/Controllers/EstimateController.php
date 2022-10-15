@@ -61,7 +61,7 @@ class EstimateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Estimate  $estimate
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function show(Estimate $estimate)
@@ -72,7 +72,7 @@ class EstimateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Estimate  $estimate
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function edit(Estimate $estimate)
@@ -83,8 +83,8 @@ class EstimateController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Estimate  $estimate
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Estimate $estimate)
@@ -95,7 +95,7 @@ class EstimateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Estimate  $estimate
+     * @param \App\Models\Estimate $estimate
      * @return \Illuminate\Http\Response
      */
     public function destroy(Estimate $estimate)
