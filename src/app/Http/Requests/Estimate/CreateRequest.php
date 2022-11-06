@@ -34,7 +34,7 @@ class CreateRequest extends FormRequest
             "effective_date" => 'required',
             "remarks" => 'required',
         ];
-    }   
+    }
 
 
     /**
@@ -42,7 +42,7 @@ class CreateRequest extends FormRequest
      *
      * @return string
      */
-    public function getEstimatenumber(): string
+    public function getEstimateNumber(): string
     {
         return $this->get("estimate_number");
     }
@@ -62,7 +62,7 @@ class CreateRequest extends FormRequest
     /**
      * 取引先ID取得
      *
-     * @return string 
+     * @return string
      */
     public function getClients(): string
     {

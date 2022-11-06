@@ -2,15 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Estimate;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\Estimate\CreateRequest;
+use App\Models\Estimate;
+use App\Services\Command\EstimateCommandService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class EstimateController extends Controller
 {
+    private EstimateCommandService $estimateCommandService;
+
+    public function __construct(EstimateCommandService $estimateCommandService)
+    {
+        $this->estimateCommandService = $estimateCommandService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,35 +31,23 @@ class EstimateController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('estimate.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Estimate\CreateRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param CreateRequest $request
+     * @return RedirectResponse
      */
     public function store(CreateRequest $request): RedirectResponse
     {
         // Estimateモデル呼び出し
-        $estimates = new Estimate();
-        $estimates->no = $request->getEstimatenumber();
-        $estimates->subject = $request->getSubject();
-        $estimates->buyer_id = $request->getClients();
-        $estimates->contacted_by = $request->getStaff();
-        $estimates->submitted_at = $request->getPublishdate();
-        $estimates->is_lost = 0;
-        $estimates->expired_at = $request->getEffectivedate();
-        $estimates->remarks = $request->getRemarks();
-        $estimates->created_by = Auth::id();
-        $estimates->updated_by = Auth::id();
-        $estimates->save(); 
-
+        $this->estimateCommandService->create($request);
 
         // todo:今後商品登録処理作成
         return redirect()->route('estimate.index');

@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\EstimateController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,13 +20,13 @@ Route::get('/', function () {
 
 Auth::routes(['register' => false]);
 
-Route::middleware(['guest'])->group(function(){
+Route::middleware(['guest'])->group(function () {
 
-    Route::get('/pre-register', function(){
+    Route::get('/pre-register', function () {
         return view('/auth/pre_register');
     })->name('pre-register');
 
-    Route::get('/pre-complete', function(){
+    Route::get('/pre-complete', function () {
         return view('/auth/pre_complete');
     })->name('pre-complete');
 
@@ -39,22 +38,20 @@ Route::middleware(['guest'])->group(function(){
 
 });
 
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::get('/estimate/index', function(){
+    Route::get('/estimate/index', function () {
         return view('/estimate/index');
     })->name('estimate.index');
-   
-    // 見積もり作成
-    Route::get('/estimate/create', function(){
-        return view('/estimate/create');
-    });
+
+    // 見積もり作成画面
+    Route::get('/estimate/create', [EstimateController::class, 'create'])->name('estimate.create');
 
 
     // debug(後でURL先変更)
-    Route::get('/estimate/show', function() {
+    Route::get('/estimate/show', function () {
         return view('/estimate/show');
     });
 
