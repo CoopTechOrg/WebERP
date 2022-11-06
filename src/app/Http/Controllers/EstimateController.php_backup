@@ -54,24 +54,16 @@ class EstimateController extends Controller
         $estimates->updated_by = Auth::id();
         $estimates->save();
 
-        for( $i=1; $i<=10; $i++ ){
-            // Productモデル呼び出し
-            $products = new Product();
-            // 動的に関数作成
-            $namefunc = "getName$i";
-            $name = $request->$namefunc();
-            $unitfunc = "getUnit$i";
-            $unit = $request->$unitfunc();
-            $products->name = $name;
-            $products->unit = $unit;
-            $products->remarks = $request->getRemarks();
-            $products->created_by = Auth::id();
-            $products->updated_by = Auth::id();
-            // 入力データの存在チェック
-            if( isset($name) && isset($unit) ){
-                $products->save();
-            }
-        } 
+        // Productモデル呼び出し
+        $products = new Product();
+        $products->name = $request->getName();
+        $products->unit = $request->getUnit();
+        $products->remarks = $request->getRemarks();
+        $products->created_by = Auth::id();
+        $products->updated_by = Auth::id();
+        $products->save(); 
+
+        //dd($products);
 
         // todo:今後商品登録処理作成
         return redirect()->route('estimate.index');

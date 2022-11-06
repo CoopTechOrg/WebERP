@@ -33,6 +33,8 @@ class CreateRequest extends FormRequest
             "publish_date" => 'required',
             "effective_date" => 'required',
             "remarks" => 'required',
+            "name1" => 'required',
+            "unit1" => 'required',
         ];
     }   
 
@@ -109,4 +111,204 @@ class CreateRequest extends FormRequest
     {
         return $this->get("remarks");
     }
+
+    /**
+     * 品名取得(1行目)
+     *
+     * @return string
+     */
+    public function getName1(): string
+    {
+        return $this->get("name1");
+    }
+
+    /**
+     * 品名取得(2行目)
+     *
+     * @return string
+     */
+    public function getName2()
+    {
+        return $this->get("name2");
+    }
+
+    /**
+     * 品名取得(3行目)
+     *
+     * @return string
+     */
+    public function getName3()
+    {
+        return $this->get("name3");
+    }
+
+    /**
+     * 品名取得(4行目)
+     *
+     * @return string
+     */
+    public function getName4()
+    {
+        return $this->get("name4");
+    }
+
+    /**
+     * 品名取得(5行目)
+     *
+     * @return string
+     */
+    public function getName5()
+    {
+        return $this->get("name5");
+    }
+
+    /**
+     * 品名取得(6行目)
+     *
+     * @return string
+     */
+    public function getName6()
+    {
+        return $this->get("name6");
+    }
+  
+    /**
+     * 品名取得(7行目)
+     *
+     * @return string
+     */
+    public function getName7()
+    {
+        return $this->get("name7");
+    }
+
+    /**
+     * 品名取得(8行目)
+     *
+     * @return string
+     */
+    public function getName8()
+    {
+        return $this->get("name8");
+    }
+
+    /**
+     * 品名取得(9行目)
+     *
+     * @return string
+     */
+    public function getName9()
+    {
+        return $this->get("name9");
+    }
+
+    /**
+     * 品名取得(10行目)
+     *
+     * @return string
+     */
+    public function getName10()
+    {
+        return $this->get("name10");
+    }
+
+    /**
+     * 単位取得(1行目)
+     *
+     * @return string
+     */
+    public function getUnit1(): string
+    {
+        return $this->get("unit1");
+    }
+ 
+   /**
+     * 単位取得(2行目)
+     *
+     * @return string
+     */
+    public function getUnit2()
+    {
+        return $this->get("unit2");
+    }
+
+    /**
+     * 単位取得(3行目)
+     *
+     * @return string
+     */
+    public function getUnit3()
+    {
+        return $this->get("unit3");
+    }
+
+    /**
+     * 単位取得(4行目)
+     *
+     * @return string
+     */
+    public function getUnit4()
+    {
+        return $this->get("unit4");
+    }
+
+    /**
+     * 単位取得(5行目)
+     *
+     * @return string
+     */
+    public function getUnit5()
+    {
+        return $this->get("unit5");
+    }
+
+    /**
+     * 単位取得(6行目)
+     *
+     * @return string
+     */
+    public function getUnit6()
+    {
+        return $this->get("unit6");
+    }
+
+    /**
+     * 単位取得(7行目)
+     *
+     * @return string
+     */
+    public function getUnit7()
+    {
+        return $this->get("unit7");
+    }
+
+    /**
+     * 単位取得(8行目)
+     *
+     * @return string
+     */
+    public function getUnit8()
+    {
+        return $this->get("unit8");
+    }
+
+    /**
+     * 単位取得(9行目)
+     *
+     * @return string
+     */
+    public function getUnit9()
+    {
+        return $this->get("unit9");
+    }
+
+    /**
+     * 単位取得(10行目)
+     *
+     * @return string
+     */
+    public function getUnit10()
+    {
+        return $this->get("unit10");
+    } 
 }
